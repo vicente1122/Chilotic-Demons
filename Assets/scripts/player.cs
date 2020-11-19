@@ -9,16 +9,16 @@ public class player : MonoBehaviour
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
+    public KeyCode jumpW;
     private Rigidbody2D rb2d;   
-
-    public Transform ground_ver;
-    public float ground_radius;
     public bool ground;
-    public LayerMask what_is_ground;
+    private Animator anim;
+    public ParticleSystem polvo;
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
+        anim=GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,21 +29,30 @@ public class player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        ground=Physics2D.OverlapCircle(ground_ver.position,ground_radius,what_is_ground);
+        anim.SetBool("ground",ground);
+        anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
+        
         if (Input.GetKey(left)){
+            if(ground) CrearPolvo();
             rb2d.velocity=new Vector2(-speed,rb2d.velocity.y);
             transform.localScale= new Vector3(-1,1,1);
 
         }
         else if (Input.GetKey(right)){
+            if (ground) CrearPolvo();
             rb2d.velocity=new Vector2(speed,rb2d.velocity.y);
             transform.localScale= new Vector3(1,1,1);
         }
         else{
             rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
         }
-        if (Input.GetKey(jump) && ground){
+        if (Input.GetKey(jump) && ground || Input.GetKey(jumpW)){
+            CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
         }
+    }
+    void CrearPolvo()
+    {
+        polvo.Play();
     }
 }
