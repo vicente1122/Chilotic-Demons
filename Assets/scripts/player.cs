@@ -6,6 +6,7 @@ public class player : MonoBehaviour
 {
     public float speed;
     public float jump_power;
+    public KeyCode Hitmeele;
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
