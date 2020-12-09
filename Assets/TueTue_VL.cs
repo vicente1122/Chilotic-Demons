@@ -21,7 +21,7 @@ public class TueTue_VL : MonoBehaviour
     {
 
         RaycastHit2D infoSuelo = Physics2D.Raycast(deteccionSuelo.position, Vector2.down, distancia);   //como el sensor de si se le acaba el suelo
-
+        
         if (infoSuelo.collider == false)            //se le acaba el suelo
         {
             if (avanzandoIzquierda == true)
@@ -43,13 +43,11 @@ public class TueTue_VL : MonoBehaviour
             {              //si tiene suelo mientras va a la izquierda
                 rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
                 transform.localScale = new Vector3(5, 5, 0);
-                avanzandoIzquierda = false;
             }
             else
             {                                       //si tiene el suelo mientras va a la derecha
                 rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
                 transform.localScale = new Vector3(-5, 5, 0);
-                avanzandoIzquierda = true;
             }
         }
     }
