@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TueTue_VL : MonoBehaviour
+public class Enemigo : MonoBehaviour
 {
+    public float dimension_x;    //para evitar problemas de orientacion
+    public float dimension_y;
+    public int salud;  //total de vida
     public float velocidad;
     public float distancia;     //a que distancia detecta el suelo
     private bool avanzandoIzquierda = true;
@@ -27,13 +30,13 @@ public class TueTue_VL : MonoBehaviour
             if (avanzandoIzquierda == true)
             {              //se le acaba el suelo mientras va a la izquierda
                 rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(-5, 5, 0);
+                transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
                 avanzandoIzquierda = false;
             }
             else
             {                                       //se le acaba el suelo mientras va a la derecha
                 rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(5, 5, 0);
+                transform.localScale = new Vector3(dimension_x, dimension_y, 0);
                 avanzandoIzquierda = true;
             }
         }
@@ -42,13 +45,22 @@ public class TueTue_VL : MonoBehaviour
             if (avanzandoIzquierda == true)
             {              //si tiene suelo mientras va a la izquierda
                 rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(5, 5, 0);
+                transform.localScale = new Vector3(dimension_x, dimension_y, 0);
             }
             else
             {                                       //si tiene el suelo mientras va a la derecha
                 rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(-5, 5, 0);
+                transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
             }
+        }
+    }
+    public void RecibeDaño(int d)         //cuando recibe daño
+    {
+        salud -= d;
+        Debug.Log("daño recibido");
+        if (salud <= 0)                      //si pierde toda su vida
+        {
+            Destroy(this.gameObject);            //muere
         }
     }
 }
