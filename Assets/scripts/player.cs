@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    public int salud;  //total de vida
     public float speed;
     public float jump_power;
     public KeyCode left;
@@ -54,5 +55,15 @@ public class player : MonoBehaviour
     void CrearPolvo()
     {
         polvo.Play();
+    }
+    public void RecibeDaño(int d)         //cuando recibe daño
+    {
+        salud -= d;
+        Debug.Log("daño recibido");
+        if (salud <= 0)                      //si pierde toda su vida
+        {
+            Debug.Log("moriste");
+            Destroy(this.gameObject);            //muere *agregen animaciones porfa*
+        }
     }
 }
