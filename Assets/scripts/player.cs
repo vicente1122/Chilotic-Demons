@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class player : MonoBehaviour
     public bool ground;
     private Animator anim;
     public ParticleSystem polvo;
+
+    public Text textoSalud;
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
+        textoSalud.text = "Salud:" + salud.ToString();
     }
 
     // Update is called once per frame
@@ -30,6 +34,7 @@ public class player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        
         anim.SetBool("ground",ground);
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
         
@@ -63,7 +68,9 @@ public class player : MonoBehaviour
         if (salud <= 0)                      //si pierde toda su vida
         {
             Debug.Log("moriste");
+            salud = 0;
             Destroy(this.gameObject);            //muere *agregen animaciones porfa*
         }
+        textoSalud.text = "Salud:" + salud.ToString();
     }
 }

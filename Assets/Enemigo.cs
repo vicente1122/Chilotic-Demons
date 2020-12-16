@@ -68,9 +68,12 @@ public class Enemigo : MonoBehaviour
             Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
             for (int i = 0; i < enemigosDañados.Length; i++)
             {
+                if (enemigosDañados.Length > 0)
+                {
+                    tiempoEntreAtaque = IniciartiempoEntreAtaque;
+                }
                 enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
             }
-            tiempoEntreAtaque = IniciartiempoEntreAtaque;
         }
         else
         {
