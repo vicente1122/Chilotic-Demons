@@ -7,7 +7,6 @@ public class Enemigo : MonoBehaviour
 {
     public float dimension_x;    //para evitar problemas de orientacion y asignar las dimensiones
     public float dimension_y;
-    public int salud_inicial; //total de vida inicial, no se cambia
     public int salud;  //total de vida, este se cambia
     public float velocidad;
     public float distancia;     //a que distancia detecta el suelo
@@ -25,6 +24,7 @@ public class Enemigo : MonoBehaviour
     public float IniciartiempoEntreAtaque; //cuenta el tiempo que pasa entre ataques
     public Transform player;
     private float tiempoEntreAtaque; //cuenta el tiempo que pasa
+    private int salud_inicial; //total de vida inicial, no se cambia
 
     public Image vida;    // Para desplegar la vida de forma visible
     // Start is called before the first frame update
@@ -106,7 +106,6 @@ public class Enemigo : MonoBehaviour
         {
             Destroy(this.gameObject);            //muere *agreguen animaciones porfa*
         }
-        //float proporcion = salud_inicial / d;
         float proporcion = (float)salud / (float)salud_inicial;
         Debug.Log(salud);
         Debug.Log(salud_inicial);
