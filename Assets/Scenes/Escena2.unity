@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 554614155}
   - component: {fileID: 554614157}
   - component: {fileID: 554614156}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: vida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1350,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.84}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &629993987
 MonoBehaviour:
@@ -2412,12 +2412,12 @@ PrefabInstance:
     - target: {fileID: 8854716055722931388, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -186.3
+      value: -109.2
       objectReference: {fileID: 0}
     - target: {fileID: 8854716055722931388, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28
+      value: -41.8
       objectReference: {fileID: 0}
     - target: {fileID: 8854716055722931388, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
@@ -2905,7 +2905,7 @@ GameObject:
   - component: {fileID: 1563254081}
   - component: {fileID: 1563254083}
   - component: {fileID: 1563254082}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3930,7 +3930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dimension_x: 5
   dimension_y: 5
-  salud_inicial: 20
   salud: 20
   velocidad: 40
   distancia: 6
@@ -4353,6 +4352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minion
       objectReference: {fileID: 0}
+    - target: {fileID: 6227159796927309170, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6227159796927309173, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4407,6 +4411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227159798351527192, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b8c81cf5976fb41b0ce4da5b3285e9, type: 3}
