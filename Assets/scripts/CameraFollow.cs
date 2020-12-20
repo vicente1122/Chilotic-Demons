@@ -40,9 +40,9 @@ public class CameraFollow : MonoBehaviour
         float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
 
         transform.position=new Vector3(posX,posY,transform.position.z);   
-        /*if (Input.GetButtonDown("Fire1")){
+        if (Input.GetButtonDown("Fire1")){
             ShakeCamera(1f,1);
-        }*/
+        }
         
     }
     

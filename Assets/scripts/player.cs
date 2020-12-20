@@ -14,40 +14,33 @@ public class player : MonoBehaviour
     public KeyCode jump;
     public KeyCode jumpW;
 
-    public KeyCode Ataque1;
-    public KeyCode Ataque2;
-    private Rigidbody2D rb2d;   
+    public KeyCode Shake;
     public bool ground;
-    private Animator anim;
     public ParticleSystem polvo;
-
+    private Rigidbody2D rb2d;   
+    private Animator anim;
+    private int salud_inicial;
     public CameraFollow camFollow;
-    private bool ax1Fire;
-    private bool ax2Fire;
-    public float tiempo;
-
+    public Image vida;
     public Text textoSalud;
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
-        textoSalud.text = "Salud:" + salud.ToString();
+        textoSalud.text = salud.ToString();
+        salud_inicial = salud;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-        
+    {    
     }
     void FixedUpdate()
     {
         
         anim.SetBool("ground",ground);
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
-        anim.SetBool("ax1Fire",ax1Fire);
-        anim.SetBool("ax2Fire",ax2Fire);
         
         if (Input.GetKey(left)){
             if(ground) CrearPolvo();
@@ -67,71 +60,13 @@ public class player : MonoBehaviour
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
         }
-        if (Input.GetKey(Ataque1))
-        {
-            //camFollow.ShakeCamera(1f,0.1f);
-            timer(0.5f);
-            if(tiempo>=0)
-            {
-                ax1Fire=true;
-                rb2d.velocity= new Vector2(0,0);
-                tiempo-=Time.deltaTime;
-            }
-            
+        if (Input.GetKey(Shake)){
+            camFollow.ShakeCamera(1.5f,0.1f);
         }
-        else if(Input.GetKey(Ataque2))
-        {
-            
-            timer(0.8f);
-            if(tiempo>=0)
-            {
-                ax2Fire=true;
-                rb2d.velocity= new Vector2(0,0);
-                tiempo-=Time.deltaTime;
-                
-            }
-            
-        }
-        if (tiempo<=0.3f && tiempo>0)
-        {
-            camFollow.ShakeCamera(1f,0.1f);
-        }
-        if (tiempo<=0)
-        {
-            ax1Fire=false;
-            ax2Fire=false;
-        }
-
-        if (tiempo>=0)
-        {
-            //ax1Fire=true;
-            rb2d.velocity=new Vector2(0,0);
-            tiempo-=Time.deltaTime;
-        }
-        /*else{
-            ax1Fire=false;
-        }*/
     }
     void CrearPolvo()
     {
         polvo.Play();
-    }
-    /*void ataque1(float duracion)
-    {
-        timer(duracion);
-        if (tiempo>=0)
-            {
-                ax1Fire=true;
-                rb2d.velocity=new Vector2(0,0);
-                tiempo-=Time.deltaTime;
-            }
-        else{
-            ax1Fire=false;
-            }
-    }*/
-    public void timer(float duracion)
-    {
-        tiempo=duracion;
     }
     public void RecibeDaño(int d)         //cuando recibe daño
     {
@@ -150,7 +85,9 @@ public class player : MonoBehaviour
                 salud = 0;
                 Destroy(this.gameObject);            //muere *agregen animaciones porfa*
             }
-            textoSalud.text = "Salud:" + salud.ToString();
+            textoSalud.text = salud.ToString();
+            float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
+            vida.fillAmount = proporcion;
         }
     }
 }
