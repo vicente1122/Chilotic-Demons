@@ -12,10 +12,14 @@ public class player : MonoBehaviour
     public KeyCode right;
     public KeyCode jump;
     public KeyCode jumpW;
+
+    public KeyCode Shake;
     private Rigidbody2D rb2d;   
     public bool ground;
     private Animator anim;
     public ParticleSystem polvo;
+
+    public CameraFollow camFollow;
 
     public Text textoSalud;
     // Start is called before the first frame update
@@ -55,6 +59,9 @@ public class player : MonoBehaviour
         if (Input.GetKey(jump) && ground || Input.GetKey(jumpW)){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
+        }
+        if (Input.GetKey(Shake)){
+            camFollow.ShakeCamera(1.5f,0.1f);
         }
     }
     void CrearPolvo()
