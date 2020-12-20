@@ -15,26 +15,27 @@ public class player : MonoBehaviour
     public KeyCode jumpW;
 
     public KeyCode Shake;
-    public bool ground;
-    public ParticleSystem polvo;
     private Rigidbody2D rb2d;   
+    public bool ground;
     private Animator anim;
-    private int salud_inicial;
+    public ParticleSystem polvo;
+
     public CameraFollow camFollow;
-    public Image vida;
+
     public Text textoSalud;
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
-        textoSalud.text = salud.ToString();
-        salud_inicial = salud;
+        textoSalud.text = "Salud:" + salud.ToString();
     }
 
     // Update is called once per frame
     void Update()
-    {    
+    {
+        
+        
     }
     void FixedUpdate()
     {
@@ -85,9 +86,7 @@ public class player : MonoBehaviour
                 salud = 0;
                 Destroy(this.gameObject);            //muere *agregen animaciones porfa*
             }
-            textoSalud.text = salud.ToString();
-            float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
-            vida.fillAmount = proporcion;
+            textoSalud.text = "Salud:" + salud.ToString();
         }
     }
 }
