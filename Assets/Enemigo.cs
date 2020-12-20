@@ -14,7 +14,7 @@ public class Enemigo : MonoBehaviour
     private float velocidad2;
     private Rigidbody2D rb2d;
     private bool avanzandoIzquierda = true;
-
+    private bool presente = false;
     //variables de combate abajo
     public float Vista; //rango visual
     public float Rango; //rango de ataque
@@ -39,62 +39,119 @@ public class Enemigo : MonoBehaviour
     void Update()
     {
         RaycastHit2D infoSuelo = Physics2D.Raycast(deteccionSuelo.position, Vector2.down, distancia);   //sensor de si se le acaba el suelo
-
-
-        if (infoSuelo.collider == false)            //se le acaba el suelo
+        if ((((player.transform.position.x - transform.position.x) * (player.transform.position.x - transform.position.x)) < (Vista * Vista))) //si el jugador esta en rango visual por el eje X
         {
-            if (avanzandoIzquierda == true)
-            {              //se le acaba el suelo mientras va a la izquierda
-                rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
-                avanzandoIzquierda = false;
-            }
-            else
-            {                                       //se le acaba el suelo mientras va a la derecha
-                rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(dimension_x, dimension_y, 0);
-                avanzandoIzquierda = true;
-            }
-        }
-        else if (infoSuelo.collider == true)         //tiene suelo
-        {
-            if (avanzandoIzquierda == true)
-            {              //si tiene suelo mientras va a la izquierda
-                rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(dimension_x, dimension_y, 0);
-            }
-            else
-            {                                       //si tiene el suelo mientras va a la derecha
-                rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
-                transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
-            }
-        }
-        //agregar una forma de detectar y seguir al jugador
-        if (tiempoEntreAtaque <= 0)   //CD para los ataques
-        {
-            Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
-            for (int i = 0; i < enemigosDañados.Length; i++)
+            if (((player.transform.position.y - transform.position.y) * (player.transform.position.y - transform.position.y)) < (Vista * Vista) / 2) //si el jugador esta en rango visual por el eje Y
             {
-                if (enemigosDañados.Length > 0)
-                {
-                    tiempoEntreAtaque = IniciartiempoEntreAtaque;
-                    int num = Random.Range(1, 101);          //probabilidades
-                    if (num < 90)            //ataque normal
-                    {
-                        enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
-                    }
-                    else if (num > 89)     //golpe critico
-                    {
-                        int critico = daño * 3;
-                        enemigosDañados[i].GetComponent<player>().RecibeDaño(critico);
-                        Debug.Log("Golpe Critico");
-                    }
-                }
+                presente = true;
             }
         }
         else
         {
-            tiempoEntreAtaque -= Time.deltaTime;
+            presente = false;
+        }
+        if (presente == false)
+        {
+            if (infoSuelo.collider == false)            //se le acaba el suelo
+            {
+                if (avanzandoIzquierda == true)
+                {              //se le acaba el suelo mientras va a la izquierda
+                    rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
+                    transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
+                    avanzandoIzquierda = false;
+                }
+                else
+                {                                       //se le acaba el suelo mientras va a la derecha
+                    rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                    avanzandoIzquierda = true;
+                }
+            }
+            else if (infoSuelo.collider == true)         //tiene suelo
+            {
+                if (avanzandoIzquierda == true)
+                {              //si tiene suelo mientras va a la izquierda
+                    rb2d.velocity = new Vector2(-velocidad, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                }
+                else
+                {                                       //si tiene el suelo mientras va a la derecha
+                    rb2d.velocity = new Vector2(velocidad, rb2d.velocity.y);
+                    transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
+                }
+            }
+        }
+        if (presente == true)
+        {
+            if (player.transform.position.x < transform.position.x)  //si el jugador esta a la izquierda
+            {
+                if (infoSuelo == true)
+                {
+                    rb2d.velocity = new Vector2(-velocidad * 2, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                }
+                else if (infoSuelo == false)
+                {
+                    rb2d.velocity = new Vector2(-velocidad * 0, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                    avanzandoIzquierda = false;
+                }
+            }
+            else if (player.transform.position.x > transform.position.x)  //si el jugador esta a la derecha
+            {
+                if (infoSuelo == true)
+                {
+                    rb2d.velocity = new Vector2(velocidad * 2, rb2d.velocity.y);
+                    transform.localScale = new Vector3(-dimension_x, dimension_y, 0);
+
+                }
+                else if (infoSuelo == false)
+                {
+                    rb2d.velocity = new Vector2(velocidad * 0, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                    avanzandoIzquierda = true;
+                }
+            }
+            else if (player.transform.position.x == transform.position.x)      //si el jugador esta donde el enemigo
+            {
+                if (avanzandoIzquierda == true)
+                {
+                    rb2d.velocity = new Vector2(-velocidad * 0, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                }
+                else
+                {
+                    rb2d.velocity = new Vector2(velocidad * 0, rb2d.velocity.y);
+                    transform.localScale = new Vector3(dimension_x, dimension_y, 0);
+                }
+            }
+            //agregar una forma de detectar y seguir al jugador
+            if (tiempoEntreAtaque <= 0)   //CD para los ataques
+            {
+                Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
+                for (int i = 0; i < enemigosDañados.Length; i++)
+                {
+                    if (enemigosDañados.Length > 0)
+                    {
+                        tiempoEntreAtaque = IniciartiempoEntreAtaque;
+                        int num = Random.Range(1, 101);          //probabilidades
+                        if (num < 90)            //ataque normal
+                        {
+                            enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
+                        }
+                        else if (num > 89)     //golpe critico
+                        {
+                            int critico = daño * 3;
+                            enemigosDañados[i].GetComponent<player>().RecibeDaño(critico);
+                            Debug.Log("Golpe Critico");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                tiempoEntreAtaque -= Time.deltaTime;
+            }
         }
     } //este corchete cierra el void 
 
@@ -106,10 +163,7 @@ public class Enemigo : MonoBehaviour
         {
             Destroy(this.gameObject);            //muere *agreguen animaciones porfa*
         }
-        float proporcion = (float)salud / (float)salud_inicial;
-        Debug.Log(salud);
-        Debug.Log(salud_inicial);
-        Debug.Log(salud/salud_inicial);
+        float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
         vida.fillAmount = proporcion;
     }
 }
