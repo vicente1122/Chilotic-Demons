@@ -14,17 +14,13 @@ public class player : MonoBehaviour
     public KeyCode jump;
     public KeyCode jumpW;
 
-    public KeyCode Ataque1;
-    public KeyCode Ataque2;
+    public KeyCode Shake;
     private Rigidbody2D rb2d;   
     public bool ground;
     private Animator anim;
     public ParticleSystem polvo;
 
     public CameraFollow camFollow;
-    private bool ax1Fire;
-    private bool ax2Fire;
-    public float tiempo;
 
     public Text textoSalud;
     // Start is called before the first frame update
@@ -46,8 +42,6 @@ public class player : MonoBehaviour
         
         anim.SetBool("ground",ground);
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
-        anim.SetBool("ax1Fire",ax1Fire);
-        anim.SetBool("ax2Fire",ax2Fire);
         
         if (Input.GetKey(left)){
             if(ground) CrearPolvo();
@@ -67,6 +61,7 @@ public class player : MonoBehaviour
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
         }
+<<<<<<< HEAD
         if (Input.GetKey(Ataque1)&&ground)
         {
             //camFollow.ShakeCamera(1f,0.1f);
@@ -104,38 +99,15 @@ public class player : MonoBehaviour
         {
             ax1Fire=false;
             ax2Fire=false;
+=======
+        if (Input.GetKey(Shake)){
+            camFollow.ShakeCamera(1.5f,0.1f);
+>>>>>>> 09737284ff1e12eb93eff95972da9adc3e7e63d5
         }
-
-        if (tiempo>=0)
-        {
-            //ax1Fire=true;
-            rb2d.velocity=new Vector2(0,0);
-            tiempo-=Time.deltaTime;
-        }
-        /*else{
-            ax1Fire=false;
-        }*/
     }
     void CrearPolvo()
     {
         polvo.Play();
-    }
-    /*void ataque1(float duracion)
-    {
-        timer(duracion);
-        if (tiempo>=0)
-            {
-                ax1Fire=true;
-                rb2d.velocity=new Vector2(0,0);
-                tiempo-=Time.deltaTime;
-            }
-        else{
-            ax1Fire=false;
-            }
-    }*/
-    public void timer(float duracion)
-    {
-        tiempo=duracion;
     }
     public void RecibeDaño(int d)         //cuando recibe daño
     {
