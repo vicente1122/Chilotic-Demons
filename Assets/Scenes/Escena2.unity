@@ -2479,6 +2479,11 @@ PrefabInstance:
       propertyPath: textoSalud
       value: 
       objectReference: {fileID: 1547737596}
+    - target: {fileID: 8854716055722931391, guid: c702952abc80be74c95e8ebeef27f721,
+        type: 3}
+      propertyPath: evasion
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8854716056511284516, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: m_Layer
@@ -3931,10 +3936,10 @@ MonoBehaviour:
   dimension_x: 5
   dimension_y: 5
   salud: 20
-  velocidad: 40
+  velocidad: 30
   distancia: 6
   deteccionSuelo: {fileID: 1951958348}
-  Vista: 8
+  Vista: 50
   Rango: 2
   "da\xF1o": 6
   que_es_objetivo:
@@ -3990,7 +3995,7 @@ PrefabInstance:
     - target: {fileID: 4042545932004544640, guid: 885fad93fdc180c4db78016f65540522,
         type: 3}
       propertyPath: Vista
-      value: 8
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4042545932004544640, guid: 885fad93fdc180c4db78016f65540522,
         type: 3}
@@ -4036,6 +4041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: salud_inicial
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042545932004544640, guid: 885fad93fdc180c4db78016f65540522,
+        type: 3}
+      propertyPath: velocidad
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4042545932004544641, guid: 885fad93fdc180c4db78016f65540522,
         type: 3}
@@ -4185,7 +4195,7 @@ PrefabInstance:
     - target: {fileID: 2609691011941508243, guid: 1dfab08f796066648885a70e21326970,
         type: 3}
       propertyPath: Vista
-      value: 8
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2609691011941508243, guid: 1dfab08f796066648885a70e21326970,
         type: 3}
@@ -4226,6 +4236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: salud_inicial
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609691011941508243, guid: 1dfab08f796066648885a70e21326970,
+        type: 3}
+      propertyPath: velocidad
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2609691011941508244, guid: 1dfab08f796066648885a70e21326970,
         type: 3}
@@ -4346,6 +4361,21 @@ PrefabInstance:
         type: 3}
       propertyPath: salud_inicial
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227159796927309169, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
+        type: 3}
+      propertyPath: Vista
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227159796927309169, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
+        type: 3}
+      propertyPath: velocidad
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227159796927309169, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
+        type: 3}
+      propertyPath: dimension_x
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6227159796927309170, guid: 40b8c81cf5976fb41b0ce4da5b3285e9,
         type: 3}

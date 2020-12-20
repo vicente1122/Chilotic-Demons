@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
+    public int evasion; //posibilidad de esquivar ataques en %
     public int salud;  //total de vida
     public float speed;
     public float jump_power;
@@ -70,14 +71,22 @@ public class player : MonoBehaviour
     }
     public void RecibeDaño(int d)         //cuando recibe daño
     {
-        salud -= d;
-        Debug.Log("daño recibido");
-        if (salud <= 0)                      //si pierde toda su vida
+        int num = Random.Range(1, 101); //probablidades
+        if (num < evasion) //logra evadir
         {
-            Debug.Log("moriste");
-            salud = 0;
-            Destroy(this.gameObject);            //muere *agregen animaciones porfa*
+            d = d * 0;    //esquiva ataque
+            Debug.Log("esquivaste un ataque");
         }
-        textoSalud.text = "Salud:" + salud.ToString();
+        else {
+            salud -= d;
+            Debug.Log("daño recibido");
+            if (salud <= 0)                      //si pierde toda su vida
+            {
+                Debug.Log("moriste");
+                salud = 0;
+                Destroy(this.gameObject);            //muere *agregen animaciones porfa*
+            }
+            textoSalud.text = "Salud:" + salud.ToString();
+        }
     }
 }
