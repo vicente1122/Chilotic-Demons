@@ -67,7 +67,7 @@ public class player : MonoBehaviour
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
         }
-        if (Input.GetKey(Ataque1))
+        if (Input.GetKey(Ataque1)&&ground)
         {
             //camFollow.ShakeCamera(1f,0.1f);
             timer(0.5f);
@@ -79,7 +79,7 @@ public class player : MonoBehaviour
             }
             
         }
-        else if(Input.GetKey(Ataque2))
+        else if(Input.GetKey(Ataque2)&&ground)
         {
             
             timer(0.8f);
@@ -92,7 +92,11 @@ public class player : MonoBehaviour
             }
             
         }
-        if (tiempo<=0.3f && tiempo>0)
+        if (ax1Fire&&tiempo<=0.5f && tiempo>0)
+        {
+            camFollow.ShakeCamera(0.5f,0.01f);
+        }
+        else if (ax2Fire&&tiempo<=0.3f && tiempo>0)
         {
             camFollow.ShakeCamera(1f,0.1f);
         }
