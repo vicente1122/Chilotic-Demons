@@ -32,7 +32,7 @@ public class player : MonoBehaviour
     {
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
-        textoSalud.text = "Salud:" + salud.ToString();
+        //textoSalud.text = "Salud:" + salud.ToString();
     }
 
     // Update is called once per frame
@@ -41,10 +41,7 @@ public class player : MonoBehaviour
         
         
     }
-    public void timer(float duracion)
-    {
-        tiempo=duracion;
-    }
+    
     void FixedUpdate()
     {
         
@@ -52,6 +49,7 @@ public class player : MonoBehaviour
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("axFire1",ax1Fire);
         anim.SetBool("axFire2",ax2Fire);
+        anim.SetFloat("tiempo",tiempo);
         
         if (Input.GetKey(left)){
             if(ground) CrearPolvo();
@@ -75,7 +73,7 @@ public class player : MonoBehaviour
         if (Input.GetKey(Ataque1)&&ground)
         {
             //camFollow.ShakeCamera(1f,0.1f);
-            timer(0.5f);
+            timer(0.3f);
             if(tiempo>=0)
             {
                 ax1Fire=true;
@@ -97,24 +95,38 @@ public class player : MonoBehaviour
             }
             
         }
-        if (ax1Fire&&tiempo<=0.5f && tiempo>0)
+        if (tiempo>=0)
         {
-            camFollow.ShakeCamera(0.5f,0.01f);
+            rb2d.velocity= new Vector2(0,0);
+            tiempo-=Time.deltaTime;
+        }
+        if (ax1Fire&&tiempo<=0.1f && tiempo>0)
+        {
+            camFollow.ShakeCamera(0.5f,0.05f);
         }
         else if (ax2Fire&&tiempo<=0.3f && tiempo>0)
         {
-            camFollow.ShakeCamera(1f,0.1f);
+            camFollow.ShakeCamera(2f,0.05f);
         }
         if (tiempo<=0)
         {
             ax1Fire=false;
             ax2Fire=false;
+        }
 /*=======/*
         if (Input.GetKey(Shake)){
             camFollow.ShakeCamera(1.5f,0.1f);
 >>>>>>> 09737284ff1e12eb93eff95972da9adc3e7e63d5
         }*/
+        if (Input.GetKey(Shake))
+        {
+            camFollow.ShakeCamera(0.15f,115f);
+        }
+    
     }
+    public void timer(float duracion)
+    {
+        tiempo=duracion;
     }
     void CrearPolvo()
     {

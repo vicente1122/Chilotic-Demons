@@ -1,28 +1,46 @@
 fileFormatVersion: 2
-guid: 0e333feebb64ceb42bcee6abb84ddb0a
+guid: cb96f9488e5da0b41915f819865eeb63
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7270515271286398273
-    second: inventario2_0
+      213: 45966500872709769
+    second: Skeleton Walk_0
   - first:
-      213: 5379010298333637979
-    second: inventario2_1
+      213: 7013577002690406627
+    second: Skeleton Walk_1
   - first:
-      213: -921096212179980803
-    second: inventario2_2
+      213: -2356003859601637949
+    second: Skeleton Walk_2
   - first:
-      213: -5694970812410843774
-    second: inventario2_3
+      213: 2369481524001456022
+    second: Skeleton Walk_3
   - first:
-      213: 1621503099350584729
-    second: inventario2_4
+      213: -1540590527562206909
+    second: Skeleton Walk_4
   - first:
-      213: 5436973735609868032
-    second: inventario2_5
+      213: -7445728037447846149
+    second: Skeleton Walk_5
   - first:
-      213: -3785926864501194517
-    second: inventario2_6
+      213: 4792086390759421477
+    second: Skeleton Walk_6
+  - first:
+      213: -3462787873181832886
+    second: Skeleton Walk_7
+  - first:
+      213: 7746255393700133122
+    second: Skeleton Walk_8
+  - first:
+      213: 4482783208499175354
+    second: Skeleton Walk_9
+  - first:
+      213: 1513826763441915127
+    second: Skeleton Walk_10
+  - first:
+      213: -2146757507701255462
+    second: Skeleton Walk_11
+  - first:
+      213: -4988383733850832283
+    second: Skeleton Walk_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,148 +162,274 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventario2_0
+      name: Skeleton Walk_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 44
-        width: 14
-        height: 14
+        x: 1
+        y: 0
+        width: 18
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb2ebe0b1e0f91b90800000000000000
-      internalID: -7270515271286398273
+      spriteID: 986e51cf94e43a000800000000000000
+      internalID: 45966500872709769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventario2_1
+      name: Skeleton Walk_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 27
-        width: 12
-        height: 11
+        x: 23
+        y: 0
+        width: 18
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d285bfd5516aa40800000000000000
-      internalID: 5379010298333637979
+      spriteID: 3e8e53adf1b355160800000000000000
+      internalID: 7013577002690406627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventario2_2
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 26
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dfded0d00eb9733f0800000000000000
-      internalID: -921096212179980803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inventario2_3
+      name: Skeleton Walk_2
       rect:
         serializedVersion: 2
         x: 45
-        y: 26
-        width: 11
-        height: 12
+        y: 0
+        width: 18
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28da808283667f0b0800000000000000
-      internalID: -5694970812410843774
+      spriteID: 3cdbefae8facd4fd0800000000000000
+      internalID: -2356003859601637949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventario2_4
+      name: Skeleton Walk_3
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 14
-        height: 14
+        x: 66
+        y: 0
+        width: 20
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99d8cfe4a7cb08610800000000000000
-      internalID: 1621503099350584729
+      spriteID: 69f35fb54e612e020800000000000000
+      internalID: 2369481524001456022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventario2_5
+      name: Skeleton Walk_4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 3
-        width: 16
-        height: 16
+        x: 88
+        y: 0
+        width: 21
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00f97246ec2047b40800000000000000
-      internalID: 5436973735609868032
+      spriteID: 341b25cd319be9ae0800000000000000
+      internalID: -1540590527562206909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventario2_6
+      name: Skeleton Walk_5
       rect:
         serializedVersion: 2
-        x: 45
-        y: 5
-        width: 12
-        height: 12
+        x: 110
+        y: 0
+        width: 22
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be04ccf439fa57bc0800000000000000
-      internalID: -3785926864501194517
+      spriteID: bf631c19cc57ba890800000000000000
+      internalID: -7445728037447846149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_6
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526f23ece29e08240800000000000000
+      internalID: 4792086390759421477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a496776a6c4b1ffc0800000000000000
+      internalID: -3462787873181832886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_8
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20933f83d3a308b60800000000000000
+      internalID: 7746255393700133122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_9
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfddabc39b063e30800000000000000
+      internalID: 4482783208499175354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_10
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f44f66bb61320510800000000000000
+      internalID: 1513826763441915127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_11
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 0
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad25096bb6f2532e0800000000000000
+      internalID: -2146757507701255462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton Walk_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5620c747c63b5cab0800000000000000
+      internalID: -4988383733850832283
       vertices: []
       indices: 
       edges: []

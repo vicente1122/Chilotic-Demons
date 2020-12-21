@@ -6,17 +6,28 @@ public class GroungVerificar : MonoBehaviour
 {
    private player player1;
 
+   public GameObject water;
+
    void Start()
    {
+       //water=GetComponent<GameObject>();
        player1=GetComponentInParent<player>();
    }
-   void OnTriggerEnter2D()
+   void OnTriggerEnter2D(Collider2D col)
    {
-       player1.ground=true;
+       if(col.gameObject.tag==water.gameObject.tag){
+           player1.ground=false;
+       }else{
+           player1.ground=true;
+       }
    }
-   void OnTriggerStay2D()
+   void OnTriggerStay2D(Collider2D col)
    {
-       player1.ground=true;
+       if(col.gameObject.tag==water.gameObject.tag){
+           player1.ground=false;
+       }else{
+           player1.ground=true;
+       }
    }
    void OnTriggerExit2D()
    {
