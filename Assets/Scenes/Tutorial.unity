@@ -1912,7 +1912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.9
-  m_Text: 'Para moverse Presione
+  m_Text: 'Para Moverse Presionar
 
     "A" o "D"'
 --- !u!222 &640047739
@@ -2320,7 +2320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ahora comienza a jugar
+  m_Text: Ahora comienza a jugar...
 --- !u!222 &783011301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5204,8 +5204,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.9
-  m_Text: "Los enemigos te seguiran si te acercas demaciado e inflijiran da\xF1o
-    si te acercas mas. Matalo antes de que te mate"
+  m_Text: Los enemigos te seguiran y atacaran si te acercas demasiado. Matalo antes
+    de que te maten
 --- !u!222 &1537470345
 CanvasRenderer:
   m_ObjectHideFlags: 0
