@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/scripts/Terminar.cs.meta
-guid: 195a8d527c9d1334880d85e42160cf17
-=======
-guid: 700996414fc512845a2de9fed8f5b188
->>>>>>> vicente:Assets/scripts/CameraFollow.cs.meta
+guid: c5882cd6ece78424e85c33446d891c8e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
