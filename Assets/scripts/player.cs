@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
+    public Image vida;
+    public int evasion; //posibilidad de esquivar ataques en %
     public int salud;  //total de vida
     public float speed;
     public float jump_power;
@@ -12,18 +14,19 @@ public class player : MonoBehaviour
     public KeyCode right;
     public KeyCode jump;
     public KeyCode jumpW;
-    private Rigidbody2D rb2d;   
-    public bool ground;
-    private Animator anim;
-    public ParticleSystem polvo;
-
     public Text textoSalud;
+    public bool ground;
+    public ParticleSystem polvo;
+    private int salud_inicial;
+    private Animator anim;
+    private Rigidbody2D rb2d;   
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
-        textoSalud.text = "Salud:" + salud.ToString();
+        textoSalud.text = salud.ToString();
+        salud_inicial = salud;
     }
 
     // Update is called once per frame
@@ -63,14 +66,25 @@ public class player : MonoBehaviour
     }
     public void RecibeDaño(int d)         //cuando recibe daño
     {
-        salud -= d;
-        Debug.Log("daño recibido");
-        if (salud <= 0)                      //si pierde toda su vida
+        int num = Random.Range(1, 101); //probablidades
+        if (num < evasion) //logra evadir
         {
-            Debug.Log("moriste");
-            salud = 0;
-            Destroy(this.gameObject);            //muere *agregen animaciones porfa*
+            d = d * 0;    //esquiva ataque
+            Debug.Log("esquivaste un ataque");
         }
-        textoSalud.text = "Salud:" + salud.ToString();
+        else
+        {
+            salud -= d;
+            float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
+            vida.fillAmount = proporcion;
+            Debug.Log("daño recibido");
+            if (salud <= 0)                      //si pierde toda su vida
+            {
+                Debug.Log("moriste");
+                salud = 0;
+                Destroy(this.gameObject);            //muere *agregen animaciones porfa*
+            }
+        }
+        textoSalud.text = salud.ToString();
     }
 }
