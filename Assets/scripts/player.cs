@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class player : MonoBehaviour
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
         textoSalud.text = salud.ToString();
-        salud_inicial = salud;
+        salud_inicial = 100;
     }
 
     // Update is called once per frame
@@ -86,5 +87,21 @@ public class player : MonoBehaviour
             }
         }
         textoSalud.text = salud.ToString();
+    }
+    public void Guardar()                //guarda juego
+    {
+        SaveSystem.guardarJugador(this);
+    }
+    public void Cargar()                 //carga juego
+    {
+        playerData data = SaveSystem.CargarJugador();
+        SceneManager.LoadScene(data.nivel);
+        salud = data.vida;
+
+        Vector3 position;
+        position.x = data.ubicacion[0];
+        position.y = data.ubicacion[1];
+        position.z = data.ubicacion[2];
+        transform.position = position;
     }
 }
