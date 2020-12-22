@@ -15,12 +15,21 @@ public class player : MonoBehaviour
     public KeyCode right;
     public KeyCode jump;
     public KeyCode jumpW;
+    public KeyCode Ataque1;
+    public KeyCode Ataque2;
+
+    public KeyCode Shake;
+    public CameraFollow camFollow;
+    public float tiempo;
+
     public Text textoSalud;
     public bool ground;
     public ParticleSystem polvo;
     private int salud_inicial;
     private Animator anim;
     private Rigidbody2D rb2d;   
+    private bool ax1Fire;
+    private bool ax2Fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +50,10 @@ public class player : MonoBehaviour
         
         anim.SetBool("ground",ground);
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
-        
+        anim.SetBool("axFire1", ax1Fire);
+        anim.SetBool("axFire2", ax2Fire);
+        anim.SetFloat("tiempo", tiempo);
+
         if (Input.GetKey(left)){
             if(ground) CrearPolvo();
             rb2d.velocity=new Vector2(-speed,rb2d.velocity.y);
@@ -59,7 +71,63 @@ public class player : MonoBehaviour
         if (Input.GetKey(jump) && ground || Input.GetKey(jumpW)){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
+        } //aqui
+        if (Input.GetKey(Ataque1) && ground)
+        {
+            //camFollow.ShakeCamera(1f,0.1f);
+            timer(0.3f);
+            if (tiempo >= 0)
+            {
+                ax1Fire = true;
+                rb2d.velocity = new Vector2(0, 0);
+                tiempo -= Time.deltaTime;
+            }
+
         }
+        else if (Input.GetKey(Ataque2) && ground)
+        {
+
+            timer(0.8f);
+            if (tiempo >= 0)
+            {
+                ax2Fire = true;
+                rb2d.velocity = new Vector2(0, 0);
+                tiempo -= Time.deltaTime;
+
+            }
+
+        }
+        if (tiempo >= 0)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+            tiempo -= Time.deltaTime;
+        }
+        if (ax1Fire && tiempo <= 0.1f && tiempo > 0)
+        {
+            camFollow.ShakeCamera(0.5f, 0.05f);
+        }
+        else if (ax2Fire && tiempo <= 0.3f && tiempo > 0)
+        {
+            camFollow.ShakeCamera(2f, 0.05f);
+        }
+        if (tiempo <= 0)
+        {
+            ax1Fire = false;
+            ax2Fire = false;
+        }
+        /*=======/*
+                if (Input.GetKey(Shake)){
+                    camFollow.ShakeCamera(1.5f,0.1f);
+        >>>>>>> 09737284ff1e12eb93eff95972da9adc3e7e63d5
+                }*/
+        if (Input.GetKey(Shake))
+        {
+            camFollow.ShakeCamera(0.15f, 115f);
+        } //aqui
+    }
+    public void timer(float duracion)
+    {
+        tiempo = duracion;
     }
     void CrearPolvo()
     {
