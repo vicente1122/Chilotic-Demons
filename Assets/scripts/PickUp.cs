@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private inventario inventario;
+    private inventario inventario1;
     public GameObject itemButtom;
     void Start()
     {
-        inventario=GameObject.FindGameObjectWithTag("Player").GetComponent<inventario>();
+        inventario1=GameObject.FindGameObjectWithTag("Player").GetComponent<inventario>();
     }
 
     void Update()
@@ -19,12 +19,12 @@ public class PickUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < inventario.slots.Length; i++)
+            for (int i = 0; i < inventario1.slots.Length; i++)
             {
-                if(inventario.isFull[i]==false)
+                if(inventario1.isFull[i]==false)
                 {
-                    inventario.isFull[i]=true;
-                    Instantiate(itemButtom,inventario.slots[i].transform);
+                    inventario1.isFull[i]=true;
+                    Instantiate(itemButtom,inventario1.slots[i].transform);
                     Destroy(gameObject);
                     break;
                 }

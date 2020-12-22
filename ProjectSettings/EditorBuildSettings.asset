@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 08a66f04af9e2634787bcdacd43bdcce
+  - enabled: 1
+    path: Assets/Scenes/primera1.unity
+    guid: c9746886e9849d44899a81ee784cfa5a
   m_configObjects: {}
