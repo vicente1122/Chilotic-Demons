@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class GroungVerificar : MonoBehaviour
 {
-    private player player1;
+   private player player1;
 
-    void Start()
-    {
-        player1 = GetComponentInParent<player>();
-    }
-    void OnTriggerEnter2D()
-    {
-        player1.ground = true;
-    }
-    void OnTriggerStay2D()
-    {
-        player1.ground = true;
-    }
-    void OnTriggerExit2D()
-    {
-        player1.ground = false;
-    }
+   public GameObject water;
+
+   void Start()
+   {
+       //water=GetComponent<GameObject>();
+       player1=GetComponentInParent<player>();
+   }
+   void OnTriggerEnter2D(Collider2D col)
+   {
+       if(col.gameObject.tag==water.gameObject.tag){
+           player1.ground=false;
+       }else{
+           player1.ground=true;
+       }
+   }
+   void OnTriggerStay2D(Collider2D col)
+   {
+       if(col.gameObject.tag==water.gameObject.tag){
+           player1.ground=false;
+       }else{
+           player1.ground=true;
+       }
+   }
+   void OnTriggerExit2D()
+   {
+       player1.ground=false;
+   }
 }
