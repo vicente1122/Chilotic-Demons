@@ -198,6 +198,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52314049}
   m_CullTransparentMesh: 0
+--- !u!1 &67201436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67201437}
+  m_Layer: 0
+  m_Name: water
+  m_TagString: Water
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67201437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67201436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 251.45157, y: 65.41644, z: -403.13242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107269749
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +670,7 @@ PrefabInstance:
         type: 3}
       propertyPath: water
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 67201436}
     - target: {fileID: 8854716056511284516, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: m_Layer
@@ -6111,11 +6141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719005575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d47ca0f9e3c1da4e9667e7db01e4344, type: 3}
+  m_Script: {fileID: 11500000, guid: 700996414fc512845a2de9fed8f5b188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmoothY: 0
-  SmoothX: 0
+  SmoothY: 0.5
+  SmoothX: 0.5
   Player1: {fileID: 943409251}
   shakeTimer: 0
   shakeAmount: 0
@@ -7766,6 +7796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pasar a siguiente nivel
+      objectReference: {fileID: 0}
+    - target: {fileID: 439111268301812359, guid: 5d9d1ab563080624a8b4ca240a971840,
+        type: 3}
+      propertyPath: Nivel_Objetivo
+      value: primera
       objectReference: {fileID: 0}
     - target: {fileID: 439111268301812378, guid: 5d9d1ab563080624a8b4ca240a971840,
         type: 3}
