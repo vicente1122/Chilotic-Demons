@@ -8,12 +8,12 @@ public class PickUp : MonoBehaviour
     public GameObject itemButtom;
     void Start()
     {
-        inventario = GameObject.FindGameObjectWithTag("Player").GetComponent<inventario>();
+        inventario=GameObject.FindGameObjectWithTag("Player").GetComponent<inventario>();
     }
 
     void Update()
     {
-
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,14 +21,14 @@ public class PickUp : MonoBehaviour
         {
             for (int i = 0; i < inventario.slots.Length; i++)
             {
-                if (inventario.isFull[i] == false)
+                if(inventario.isFull[i]==false)
                 {
-                    inventario.isFull[i] = true;
-                    Instantiate(itemButtom, inventario.slots[i].transform);
+                    inventario.isFull[i]=true;
+                    Instantiate(itemButtom,inventario.slots[i].transform);
                     Destroy(gameObject);
                     break;
                 }
-
+                
             }
         }
 

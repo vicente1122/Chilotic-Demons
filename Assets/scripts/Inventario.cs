@@ -6,15 +6,14 @@ public class inventario : MonoBehaviour
 {
     public bool[] isFull;
     public GameObject[] slots;
-    void Start()
+        void Start()
     {
-
+        
     }
 
-
+   
     void Update()
     {
-
+        
     }
 }
-
