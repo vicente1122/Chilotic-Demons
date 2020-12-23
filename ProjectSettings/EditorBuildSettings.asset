@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/primera.unity
     guid: c27533fcbdc3dcb48964f2fe414076c4
+  - enabled: 1
+    path: Assets/Scenes/primera1.unity
+    guid: 75dd13b466dbbc2419317dbee6fbe2a6
   m_configObjects: {}
