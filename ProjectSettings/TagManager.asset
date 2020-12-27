@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water
+  - ground_ver
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Player
   - Hostil
-  - 
+  - ground_ver
   - 
   - 
   - 

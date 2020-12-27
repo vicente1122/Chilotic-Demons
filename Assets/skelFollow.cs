@@ -10,7 +10,8 @@ public class skelFollow : MonoBehaviour
     public float distancia;
     public GameObject Player1;
     private Rigidbody2D skel;
-   
+    public bool running;
+    public bool ataque=false;
    private Animator anim;
 
 
@@ -29,12 +30,24 @@ public class skelFollow : MonoBehaviour
     }
     void FixedUpdate()
     {
+        anim.SetBool("run",running);
         anim.SetFloat("speed",Mathf.Abs(skel.velocity.x));
         float posX=Mathf.SmoothDamp(transform.position.x,Player1.transform.position.x,ref Velocity.x,SmoothX);
         float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
 
-        transform.position=new Vector3(posX*distancia,transform.position.y,transform.position.z);   
-        if (posX<0)
+        
+        //Debug.Log(Mathf.Abs(transform.position.x-Player1.transform.position.x));
+        if (Mathf.Abs(transform.position.x-Player1.transform.position.x)<30f)
+        {
+            transform.position=transform.position;
+            running=false;
+        } 
+        else
+        {
+            transform.position=new Vector3(posX*distancia,transform.position.y,transform.position.z);
+            running=true;
+        }
+        if (transform.position.x-Player1.transform.position.x>0)
         {
             transform.localScale= new Vector3(-1,1,1);
         }

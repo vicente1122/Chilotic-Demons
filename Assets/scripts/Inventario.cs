@@ -38,7 +38,7 @@ public class inventario : MonoBehaviour
             }
         }
         
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown(Next))
         {
             slots[selectedSlotInt].transform.GetChild(0).gameObject.SetActive(false);
 
@@ -54,7 +54,7 @@ public class inventario : MonoBehaviour
             Debug.Log(selectedSlotInt);
             slots[selectedSlotInt].transform.GetChild(0).gameObject.SetActive(true);
         }
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown(Prev))
         {
             slots[selectedSlotInt].transform.GetChild(0).gameObject.SetActive(false);
             

@@ -10,6 +10,9 @@ public class Skeleton : MonoBehaviour
     private Rigidbody2D skel;
     private Animator anim;
     public float speed;
+    public bool run=false;
+
+    public Collider2D col=null;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,8 @@ public class Skeleton : MonoBehaviour
         {
             transform.localScale= new Vector3(1,1,1);
         }*/
-        anim.SetFloat("speed",Mathf.Abs(skel.velocity.x));
+        //anim.SetFloat("speed",Mathf.Abs(skel.velocity.x));
+        anim.SetBool("run",run);
         if(Input.GetKey(right))
         {
             
@@ -47,6 +51,10 @@ public class Skeleton : MonoBehaviour
         else
         {
             skel.velocity=new Vector2(skel.velocity.x*0.85f,skel.velocity.y);
+        }
+        if (col!=null&&col.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(skel.GetComponent<Collider2D>(),col);
         }
     }
 }
