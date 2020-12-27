@@ -9,7 +9,10 @@ public class inventario : MonoBehaviour
     public GameObject selectedSlot;
     public KeyCode Next;
     public KeyCode Prev;
+    public KeyCode pause;
+    public GameObject inventario1;
     private int selectedSlotInt=0;
+    public MenuPausa MenuPausa;
         void Start()
     {
         Instantiate(selectedSlot,slots[0].transform,false);
@@ -21,8 +24,19 @@ public class inventario : MonoBehaviour
     }
 
    
-    void FixedUpdate()
+    void Update()
     {
+        if(Input.GetKeyDown(pause))
+        {
+            if(MenuPausa.PausedGame)
+            {
+                inventario1.gameObject.SetActive(false);
+            }
+            else
+            {
+                inventario1.gameObject.SetActive(true);
+            }
+        }
         
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
