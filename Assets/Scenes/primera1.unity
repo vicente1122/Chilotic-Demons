@@ -248,7 +248,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.15294118, g: 0.15294118, b: 0.26666668, a: 1}
+  m_BackGroundColor: {r: 0.050980397, g: 0.050980397, b: 0.09019608, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -349,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &273516424
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7470,7 +7470,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MatBlanco
       value: 
-      objectReference: {fileID: 2100000, guid: a00e496cf71591c44ab7c1696088e366, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 763538066387459944, guid: c33e7a982a405a440a2bd79a7fdc6b12,
         type: 3}
       propertyPath: m_IsActive
