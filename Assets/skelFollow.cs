@@ -86,7 +86,7 @@ public class skelFollow : MonoBehaviour
             //reanim=true;
             transform.position=transform.position;            
             running=false;
-            ataque=true;
+            ataque=false;
         }
         if (transform.position.x-Player1.transform.position.x>0)
         {
