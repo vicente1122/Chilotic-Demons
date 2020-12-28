@@ -5,49 +5,49 @@ using UnityEngine;
 public class IsTrigger : MonoBehaviour
 {
     public skelFollow skeleton;
-    public Collider2D col1=null;
     void OnTriggerEnter2D(Collider2D col)
+    {
+
+        Debug.Log(col.tag);
+        if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
+        {
+            skeleton.tiempo=0.5f;
+        }
+        
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+
+        Debug.Log(col.tag);
+        if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
+        {
+            skeleton.tiempo-=Time.deltaTime;
+        }
+        
+    }
+    /*void OnTriggerstay2D(Collider2D col)
     {
         col1=col;
         Debug.Log(col.tag);
         if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
         {
-            skeleton.ataque=true;
+            skeleton.trigger=false;
         }
         else
         {
-            skeleton.ataque=false;
+            skeleton.trigger=false;
         }
     }
-    void OnTriggerStay2D(Collider2D col)
-    {
-        col1=col;
-        //Debug.Log(col.tag);
-        if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
-        {
-            skeleton.ataque=true;
-        }
-        else
-        {
-            skeleton.ataque=false;
-        }
-    }
-    /*void OnTriggerStay(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            skeleton.ataqueModo=true;
-        }
-    }*/
+    
     void OnTriggerExit2D(Collider2D col)
     {
-        skeleton.ataque=false;/*
+        skeleton.trigger=false;/*
         if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
         {
             skeleton.ataque=false;
-        }*/
+        }
         
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {

@@ -17,7 +17,9 @@ public class skelFollow : MonoBehaviour
     private Material MatDefault;
     SpriteRenderer spriteRenderer;
     public bool reanim=false;
-    private float tiempo;
+    public float tiempo;
+    public bool trigger=false;
+    public Collider2D col;
 
 
     // Start is called before the first frame update
@@ -29,6 +31,8 @@ public class skelFollow : MonoBehaviour
         spriteRenderer=GetComponent<SpriteRenderer>();
         //MatBlanco=Resources.Load("WhiteFlash",typeof(Material)) as Material;
         MatDefault=spriteRenderer.material;
+        //col.gameObject.SetActive(true);
+        tiempo=-1f;
         
     }
 
@@ -40,44 +44,49 @@ public class skelFollow : MonoBehaviour
     void FixedUpdate()
     {
         anim.SetBool("run",running);
-        anim.SetFloat("speed",Mathf.Abs(skel.velocity.x));
+        anim.SetFloat("speed",tiempo);
         anim.SetBool("ataque",ataque);
         float posX=Mathf.SmoothDamp(transform.position.x,Player1.transform.position.x,ref Velocity.x,SmoothX);
         float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
         anim.SetBool("reanim",reanim);
 
         
-        Debug.Log(Mathf.Abs(transform.position.x-Player1.transform.position.x));
+        //Debug.Log(Mathf.Abs(transform.position.x-Player1.transform.position.x));
+        Debug.Log(tiempo);
         if(tiempo>0)
         {
+            reanim=true;/**/
             tiempo-=Time.deltaTime;
         }
         else if (tiempo<=0)
         {
             reanim=false;
+            tiempo=0f;
+            //col.gameObject.SetActive(false);
         }
-        if (ataque==true)
+        /*if (ataque==true)
         {
             tiempo=0.5f;
-        }
+        }*/
+        
         if (Mathf.Abs(transform.position.x-Player1.transform.position.x)<30f)
         {
             transform.position=transform.position;
             running=false;
             ataque=true;
         }
-        else if (Mathf.Abs(transform.position.x-Player1.transform.position.x)>100f)
+        else if (Mathf.Abs(transform.position.x-Player1.transform.position.x)<100f)
         {
-            transform.position=transform.position;
-            running=false;
+            transform.position=new Vector3(posX*distancia,transform.position.y,transform.position.z);
+            running=true;
             ataque=false;
         }
         else
         {
-            reanim=true;
-            transform.position=new Vector3(posX*distancia,transform.position.y,transform.position.z);
-            running=true;
-            ataque=false;
+            //reanim=true;
+            transform.position=transform.position;            
+            running=false;
+            ataque=true;
         }
         if (transform.position.x-Player1.transform.position.x>0)
         {
