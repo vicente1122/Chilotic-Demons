@@ -29,6 +29,7 @@ public class player : MonoBehaviour
     private bool ax2Fire;
     public Text textoSalud;
     public float tiempo;
+    public Collider2D Ataque;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,13 +54,13 @@ public class player : MonoBehaviour
         anim.SetBool("axFire2",ax2Fire);
         anim.SetFloat("tiempo",tiempo);
         
-        if (Input.GetKey(left)){
+        if (Input.GetKey(left)&&ax1Fire==false&&ax2Fire==false){
             if(ground) CrearPolvo();
             rb2d.velocity=new Vector2(-speed,rb2d.velocity.y);
             transform.localScale= new Vector3(-1,1,1);
 
         }
-        else if (Input.GetKey(right)){
+        else if (Input.GetKey(right)&&ax1Fire==false&&ax2Fire==false){
             if (ground) CrearPolvo();
             rb2d.velocity=new Vector2(speed,rb2d.velocity.y);
             transform.localScale= new Vector3(1,1,1);
@@ -67,6 +68,7 @@ public class player : MonoBehaviour
         else{
             rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
         }
+        
         if (Input.GetKey(jump) && ground || Input.GetKey(jumpW)){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
@@ -75,7 +77,7 @@ public class player : MonoBehaviour
         if (Input.GetKey(Ataque1)&&ground)
         {
             //camFollow.ShakeCamera(1f,0.1f);
-            timer(0.3f);
+            timer(0.45f);
             if(tiempo>=0)
             {
                 ax1Fire=true;
@@ -84,10 +86,14 @@ public class player : MonoBehaviour
             }
             
         }
+        if (tiempo>=0)
+        {
+            Ataque.gameObject.SetActive(true);
+        }
         else if(Input.GetKey(Ataque2)&&ground)
         {
             
-            timer(0.8f);
+            timer(0.85f);
             if(tiempo>=0)
             {
                 ax2Fire=true;
@@ -114,6 +120,7 @@ public class player : MonoBehaviour
         {
             ax1Fire=false;
             ax2Fire=false;
+            Ataque.gameObject.SetActive(false);
         }
 /*=======/*
         if (Input.GetKey(Shake)){

@@ -22,7 +22,7 @@ public class IsTrigger : MonoBehaviour
     void OnTriggerStay2D(Collider2D col)
     {
         col1=col;
-        Debug.Log(col.tag);
+        //Debug.Log(col.tag);
         if(col.CompareTag("Player")||col.CompareTag("ground_ver"))
         {
             skeleton.ataque=true;

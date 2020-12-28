@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - ground_ver
+  - AttackArea
   layers:
   - Default
   - TransparentFX
