@@ -16,6 +16,8 @@ public class skelFollow : MonoBehaviour
     public Material MatBlanco;
     private Material MatDefault;
     SpriteRenderer spriteRenderer;
+    public bool reanim=false;
+    private float tiempo;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class skelFollow : MonoBehaviour
         spriteRenderer=GetComponent<SpriteRenderer>();
         //MatBlanco=Resources.Load("WhiteFlash",typeof(Material)) as Material;
         MatDefault=spriteRenderer.material;
+        
     }
 
     // Update is called once per frame
@@ -41,9 +44,22 @@ public class skelFollow : MonoBehaviour
         anim.SetBool("ataque",ataque);
         float posX=Mathf.SmoothDamp(transform.position.x,Player1.transform.position.x,ref Velocity.x,SmoothX);
         float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
+        anim.SetBool("reanim",reanim);
 
         
         Debug.Log(Mathf.Abs(transform.position.x-Player1.transform.position.x));
+        if(tiempo>0)
+        {
+            tiempo-=Time.deltaTime;
+        }
+        else if (tiempo<=0)
+        {
+            reanim=false;
+        }
+        if (ataque==true)
+        {
+            tiempo=0.5f;
+        }
         if (Mathf.Abs(transform.position.x-Player1.transform.position.x)<30f)
         {
             transform.position=transform.position;
@@ -58,6 +74,7 @@ public class skelFollow : MonoBehaviour
         }
         else
         {
+            reanim=true;
             transform.position=new Vector3(posX*distancia,transform.position.y,transform.position.z);
             running=true;
             ataque=false;
