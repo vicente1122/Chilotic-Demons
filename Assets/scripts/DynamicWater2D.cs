@@ -139,6 +139,15 @@ namespace ilhamhe {
 				return;
 			}
 		}
+		private void OnTriggerStay2D(Collider2D col) {
+			if (col.GetComponent<Rigidbody2D>()!=null&&col.CompareTag("Player"))
+			{
+				Rigidbody2D rb = col.GetComponent<Rigidbody2D>();
+				Splash(col, rb.velocity.y * collisionVelocityFactor);
+			}else{
+				return;
+			}
+		}
 
 		public void Splash (Collider2D col, float force) {
 			timer = 3f;

@@ -516,6 +516,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1124,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
       propertyPath: m_Mass
-      value: 0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
@@ -6403,6 +6408,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6999,6 +7009,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7499,6 +7514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
@@ -12794,7 +12814,7 @@ PrefabInstance:
     - target: {fileID: 1921206765461642615, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
       propertyPath: m_Mass
-      value: 0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1921206765461642616, guid: ce58b050f241936418f5cc67c6769c3d,
         type: 3}
