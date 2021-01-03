@@ -21,22 +21,23 @@ public class inventario : MonoBehaviour
         //slots[0].transform.GetChild(0).gameObject.SetActive(false);
         slots[1].transform.GetChild(0).gameObject.SetActive(false);
         slots[2].transform.GetChild(0).gameObject.SetActive(false);
+        inventario1.gameObject.SetActive(true);
     }
 
    
     void Update()
     {
-        if(Input.GetKeyDown(pause))
+        //if(Input.GetKeyDown(pause))
+        
+        if(MenuPausa.PausedGame)
         {
-            if(MenuPausa.PausedGame)
-            {
-                inventario1.gameObject.SetActive(false);
-            }
-            else
-            {
-                inventario1.gameObject.SetActive(true);
-            }
+            inventario1.gameObject.SetActive(false);            
         }
+        else
+        {
+            inventario1.gameObject.SetActive(true);
+        }
+        
         
         if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown(Next))
         {

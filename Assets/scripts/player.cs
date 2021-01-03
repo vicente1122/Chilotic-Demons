@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +14,7 @@ public class player : MonoBehaviour
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
+    public int canjump;
     public KeyCode jumpW;
     public KeyCode Ataque1;
     public KeyCode Ataque2;
@@ -42,7 +43,6 @@ public class player : MonoBehaviour
     void Update()
     {
         
-        
     }
     
     void FixedUpdate()
@@ -53,6 +53,13 @@ public class player : MonoBehaviour
         anim.SetBool("axFire1",ax1Fire);
         anim.SetBool("axFire2",ax2Fire);
         anim.SetFloat("tiempo",tiempo);
+        anim.SetInteger("jumps",canjump);
+        Debug.Log(canjump);
+
+        if (ground)
+        {
+            canjump=200;
+        }
         
         if (Input.GetKey(left)&&ax1Fire==false&&ax2Fire==false){
             if(ground) CrearPolvo();
@@ -69,9 +76,10 @@ public class player : MonoBehaviour
             rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
         }
         
-        if (Input.GetKey(jump) && ground || Input.GetKey(jumpW)){
+        if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
+            canjump--;
         }
         
         if (Input.GetKey(Ataque1)&&ground)

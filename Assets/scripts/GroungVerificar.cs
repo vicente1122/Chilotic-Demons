@@ -17,8 +17,10 @@ public class GroungVerificar : MonoBehaviour
    {
        if(col.gameObject.tag==water.gameObject.tag){
            player1.ground=false;
+           
        }else{
            player1.ground=true;
+           
        }
    }
    void OnTriggerStay2D(Collider2D col)
@@ -32,5 +34,6 @@ public class GroungVerificar : MonoBehaviour
    void OnTriggerExit2D()
    {
        player1.ground=false;
+       //player1.canjump+=1;
    }
 }
