@@ -76,7 +76,7 @@ public class player : MonoBehaviour
             rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
         }
         
-        if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)){
+        if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)||(Input.GetKey(jumpW))){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
             canjump--;
