@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1984612087709078859}
   - component: {fileID: 5808497034645110}
   m_Layer: 5
-  m_Name: HealthButtom
-  m_TagString: Untagged
+  m_Name: HachaButtom
+  m_TagString: Hacha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

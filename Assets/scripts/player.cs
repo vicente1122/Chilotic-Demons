@@ -16,6 +16,7 @@ public class player : MonoBehaviour
     public KeyCode jump;
     public int canjump;
     public KeyCode jumpW;
+    public KeyCode dash;
     public KeyCode Ataque1;
     public KeyCode Ataque2;
 
@@ -30,7 +31,10 @@ public class player : MonoBehaviour
     private bool ax2Fire;
     public Text textoSalud;
     public float tiempo;
+    public float tiempoDash;
     public Collider2D Ataque;
+    public bool had2jump;
+    public inventario inventario;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,15 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)||(Input.GetKey(jumpW))){
+            CrearPolvo();
+            rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
+            canjump--;
+        }
+        if (Input.GetKeyDown(dash))
+        {
+            tiempoDash=0.1f;
+        }
         
     }
     
@@ -54,14 +67,45 @@ public class player : MonoBehaviour
         anim.SetBool("axFire2",ax2Fire);
         anim.SetFloat("tiempo",tiempo);
         anim.SetInteger("jumps",canjump);
-        Debug.Log(canjump);
+        //Debug.Log(had2jump);
+        /*Debug.Log(inventario.isFull[inventario.selectedSlotInt]);
+        if(inventario.isFull[inventario.selectedSlotInt]){
+            Debug.Log(inventario.slots[inventario.selectedSlotInt].transform.GetChild(1).gameObject.tag);
+        }*/
+        
 
-        if (ground)
+        
+        if (had2jump)
         {
-            canjump=200;
+            rb2d.velocity=new Vector2(Random.Range(-100,100),jump_power/2);
         }
         
-        if (Input.GetKey(left)&&ax1Fire==false&&ax2Fire==false){
+        if (ground)
+        {
+            canjump=1;
+        }
+        if(tiempoDash>0)
+        {
+            tiempoDash-=Time.deltaTime;
+        }
+        else
+        {
+            tiempoDash=0;
+            rb2d.velocity=new Vector2(rb2d.velocity.x,rb2d.velocity.y);
+        }
+        
+        if (Input.GetKey(dash)&&rb2d.velocity.x<0&&tiempoDash>0)
+        {
+            rb2d.velocity=new Vector2(-speed*10,rb2d.velocity.y);
+            CrearPolvo();
+        }
+        else if(Input.GetKey(dash)&&rb2d.velocity.x>0&&tiempoDash>0)
+        {
+            rb2d.velocity=new Vector2(speed*10,rb2d.velocity.y);
+            CrearPolvo();
+        }
+
+        else if (Input.GetKey(left)&&ax1Fire==false&&ax2Fire==false){
             if(ground) CrearPolvo();
             rb2d.velocity=new Vector2(-speed,rb2d.velocity.y);
             transform.localScale= new Vector3(-1,1,1);
@@ -76,13 +120,13 @@ public class player : MonoBehaviour
             rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
         }
         
-        if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)||(Input.GetKey(jumpW))){
+        /*if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)||(Input.GetKey(jumpW))){
             CrearPolvo();
             rb2d.velocity=new Vector2(rb2d.velocity.x,jump_power);
             canjump--;
-        }
+        }*/
         
-        if (Input.GetKey(Ataque1)&&ground)
+        if (Input.GetKey(Ataque1)&&ground&&inventario.isFull[inventario.selectedSlotInt]&&inventario.slots[inventario.selectedSlotInt].transform.GetChild(1).gameObject.CompareTag("Hacha"))
         {
             //camFollow.ShakeCamera(1f,0.1f);
             timer(0.45f);
@@ -98,7 +142,7 @@ public class player : MonoBehaviour
         {
             Ataque.gameObject.SetActive(true);
         }
-        else if(Input.GetKey(Ataque2)&&ground)
+        else if(Input.GetKey(Ataque2)&&ground&&inventario.isFull[inventario.selectedSlotInt]&&inventario.slots[inventario.selectedSlotInt].transform.GetChild(1).gameObject.CompareTag("Hacha"))
         {
             
             timer(0.85f);

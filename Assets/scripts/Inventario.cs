@@ -11,7 +11,7 @@ public class inventario : MonoBehaviour
     public KeyCode Prev;
     public KeyCode pause;
     public GameObject inventario1;
-    private int selectedSlotInt=0;
+    public int selectedSlotInt=0;
     public MenuPausa MenuPausa;
         void Start()
     {
@@ -28,7 +28,12 @@ public class inventario : MonoBehaviour
     void Update()
     {
         //if(Input.GetKeyDown(pause))
+        /*if(isFull[selectedSlotInt])
+        {
+            Debug.Log(slots[selectedSlotInt].transform.GetChild(1));
+        }¨*/
         
+
         if(MenuPausa.PausedGame)
         {
             inventario1.gameObject.SetActive(false);            
@@ -50,7 +55,7 @@ public class inventario : MonoBehaviour
             }
             else
             {
-                selectedSlotInt+=1;;
+                selectedSlotInt+=1;
             }
             Debug.Log(selectedSlotInt);
             slots[selectedSlotInt].transform.GetChild(0).gameObject.SetActive(true);

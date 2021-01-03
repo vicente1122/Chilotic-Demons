@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3509833060923496797}
   - component: {fileID: 476830159429545807}
   m_Layer: 5
-  m_Name: health
-  m_TagString: Untagged
+  m_Name: healthButtom
+  m_TagString: HealthButtom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

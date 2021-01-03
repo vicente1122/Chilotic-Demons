@@ -7,6 +7,9 @@ TagManager:
   - Water
   - ground_ver
   - AttackArea
+  - Spider
+  - Hacha
+  - HealthButtom
   layers:
   - Default
   - TransparentFX

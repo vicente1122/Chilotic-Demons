@@ -22,6 +22,10 @@ public class GroungVerificar : MonoBehaviour
            player1.ground=true;
            
        }
+       if(col.CompareTag("Spider"))
+       {
+           player1.had2jump=true;
+       }
    }
    void OnTriggerStay2D(Collider2D col)
    {
@@ -34,6 +38,7 @@ public class GroungVerificar : MonoBehaviour
    void OnTriggerExit2D()
    {
        player1.ground=false;
+       player1.had2jump=false;
        //player1.canjump+=1;
    }
 }
