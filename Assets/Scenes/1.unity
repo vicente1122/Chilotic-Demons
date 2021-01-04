@@ -156,12 +156,12 @@ PrefabInstance:
     - target: {fileID: 4025717092073278996, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -580
+      value: -618
       objectReference: {fileID: 0}
     - target: {fileID: 4025717092073278996, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -291
+      value: -287
       objectReference: {fileID: 0}
     - target: {fileID: 4025717092073278996, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
         type: 3}
@@ -946,7 +946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470279764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: -81.5, z: 0}
+  m_LocalPosition: {x: 32, y: -65.4, z: 0}
   m_LocalScale: {x: 0.6711139, y: 0.6711139, z: 0.6711139}
   m_Children: []
   m_Father: {fileID: 1958892887}
@@ -976,7 +976,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 130, y: 118}
+  m_Size: {x: 130, y: 63.9}
   m_EdgeRadius: 0
 --- !u!1 &537311753
 GameObject:
@@ -1011,9 +1011,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bound:
     top: -350
-    right: 0
-    bottom: -600
-    left: -600
+    right: -223
+    bottom: -460
+    left: -525
   quality: 100
   waterMaterial: {fileID: 2100000, guid: 95f57639a34d16d41bb6a9d5ffc1f4c7, type: 2}
   splash: {fileID: 9142026873056497287}
@@ -1047,9 +1047,9 @@ BuoyancyEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_SurfaceLevel: -150
+  m_SurfaceLevel: -200
   m_Density: 0.0005
-  m_LinearDrag: 0.0005
+  m_LinearDrag: 0.001
   m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
@@ -1558,7 +1558,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 5004072390309842661, guid: 2f6e1b4ae755c17478352fb15251d4e2,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2804,7 +2804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731659145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37, y: 22.64, z: 0}
+  m_LocalPosition: {x: -37, y: 40.4, z: 0}
   m_LocalScale: {x: 1.0125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958892887}
@@ -2834,7 +2834,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 130, y: 290}
+  m_Size: {x: 130, y: 254.2}
   m_EdgeRadius: 0
 --- !u!1 &1742377771
 GameObject:
@@ -3000,7 +3000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782393905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.1, y: -35.3, z: -5}
+  m_LocalPosition: {x: 37.7, y: -32.9, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958892887}
@@ -3017,9 +3017,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.86842066, b: 0.5882353, a: 1}
+  m_Color: {r: 0.31764707, g: 0.4162089, b: 0.5568628, a: 1}
   m_Intensity: 11
-  m_Range: 87.016754
+  m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3724,6 +3724,26 @@ PrefabInstance:
       propertyPath: Player1
       value: 
       objectReference: {fileID: 305475492401825576}
+    - target: {fileID: 2227938139499746584, guid: 43b15e0447aa8714db26116f52d096b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2227938139499746584, guid: 43b15e0447aa8714db26116f52d096b1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227938139499746584, guid: 43b15e0447aa8714db26116f52d096b1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227938139499746584, guid: 43b15e0447aa8714db26116f52d096b1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6226415
+      objectReference: {fileID: 0}
     - target: {fileID: 2227938139499746585, guid: 43b15e0447aa8714db26116f52d096b1,
         type: 3}
       propertyPath: m_Name
@@ -3945,12 +3965,12 @@ PrefabInstance:
     - target: {fileID: 6314745374893213920, guid: 7668bf58a5672d244a104544b78be9d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -567.3
+      value: -585.2
       objectReference: {fileID: 0}
     - target: {fileID: 6314745374893213920, guid: 7668bf58a5672d244a104544b78be9d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -289
+      value: -296.6
       objectReference: {fileID: 0}
     - target: {fileID: 6314745374893213920, guid: 7668bf58a5672d244a104544b78be9d5,
         type: 3}
@@ -4002,6 +4022,11 @@ PrefabInstance:
       propertyPath: camFollow
       value: 
       objectReference: {fileID: 1288554121}
+    - target: {fileID: 6314745374893213923, guid: 7668bf58a5672d244a104544b78be9d5,
+        type: 3}
+      propertyPath: jump_power
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6314745374893213924, guid: 7668bf58a5672d244a104544b78be9d5,
         type: 3}
       propertyPath: m_Name
