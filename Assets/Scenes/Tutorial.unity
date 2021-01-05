@@ -8420,7 +8420,7 @@ GameObject:
   - component: {fileID: 1068492412}
   - component: {fileID: 1068492411}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12377,7 +12377,7 @@ GameObject:
   - component: {fileID: 1987358807}
   - component: {fileID: 1987358806}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Texto Informativo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
