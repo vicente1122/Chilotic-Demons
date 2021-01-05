@@ -1309,6 +1309,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8854716055722931384, guid: c702952abc80be74c95e8ebeef27f721,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8854716055722931386, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: m_GravityScale
