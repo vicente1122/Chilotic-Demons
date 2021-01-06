@@ -19,6 +19,7 @@ public class player : MonoBehaviour
     public KeyCode dash;
     public KeyCode Ataque1;
     public KeyCode Ataque2;
+    private int salud_inicial;
 
     public KeyCode Shake;
     private Rigidbody2D rb2d;   
@@ -41,6 +42,7 @@ public class player : MonoBehaviour
         rb2d= GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
         textoSalud.text = salud.ToString();
+        salud_inicial = salud;
     }
 
     // Update is called once per frame
@@ -212,6 +214,8 @@ public class player : MonoBehaviour
                 Destroy(this.gameObject);            //muere *agregen animaciones porfa*
             }
             textoSalud.text = salud.ToString();
+            float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
+            vida.fillAmount = proporcion;
         }
     }
     public void Guardar()                //guarda juego

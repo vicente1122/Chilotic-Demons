@@ -45,7 +45,7 @@ public class skelFollow : MonoBehaviour
         MatDefault=spriteRenderer.material;
         //col.gameObject.SetActive(true);
         tiempo=-1f;
-        
+        salud_inicial = salud;
     }
 
     // Update is called once per frame
@@ -108,23 +108,6 @@ public class skelFollow : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        //ataque V
-        if (tiempoEntreAtaque <= 0)   //CD para los ataques
-        {
-            Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
-            for (int i = 0; i < enemigosDañados.Length; i++)
-            {
-                if (enemigosDañados.Length > 0)
-                {
-                    tiempoEntreAtaque = IniciartiempoEntreAtaque;
-                    enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
-                }
-            }
-        }
-        else
-        {
-            tiempoEntreAtaque -= Time.deltaTime;
-        }
     }//este cierra el void
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -150,6 +133,15 @@ public class skelFollow : MonoBehaviour
         }
         float proporcion = (float)salud / (float)salud_inicial;
         vida.fillAmount = proporcion;
+    }
+    public void InflijeDaño()
+    {
+            Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
+            for (int i = 0; i < enemigosDañados.Length; i++)
+            {
+                tiempoEntreAtaque = IniciartiempoEntreAtaque;
+                enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
+            }
     }
 
 }
