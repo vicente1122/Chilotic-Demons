@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 763538065089335024}
   - component: {fileID: 763538065089335031}
   - component: {fileID: 763538065089335028}
-  - component: {fileID: 763538065089335029}
   - component: {fileID: 763538065089335034}
+  - component: {fileID: 763538065089335029}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -154,6 +154,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &763538065089335034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763538065089335027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75142f94387deab43b3be43bf596fd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  salud: 0
+  que_es_objetivo:
+    serializedVersion: 2
+    m_Bits: 0
+  player: {fileID: 0}
+  Rango: 0
+  PosAtaque: {fileID: 0}
+  "da\xF1o": 0
+  vida: {fileID: 0}
+  SmoothY: 0
+  SmoothX: 1.5
+  distancia: 1
+  Player1: {fileID: 0}
+  running: 0
+  ataque: 0
+  MatBlanco: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  reanim: 0
+  tiempo: 0
+  trigger: 0
+  col: {fileID: 763538066387459951}
 --- !u!114 &763538065089335029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,29 +204,6 @@ MonoBehaviour:
   speed: 200
   run: 0
   col: {fileID: 0}
---- !u!114 &763538065089335034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763538065089335027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75142f94387deab43b3be43bf596fd20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmoothY: 0
-  SmoothX: 1.5
-  distancia: 1
-  Player1: {fileID: 0}
-  running: 0
-  ataque: 0
-  MatBlanco: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  reanim: 0
-  tiempo: 0
-  trigger: 0
-  col: {fileID: 763538066387459951}
 --- !u!1 &763538066387459944
 GameObject:
   m_ObjectHideFlags: 0

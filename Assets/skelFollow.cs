@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class skelFollow : MonoBehaviour
 {
-    public int salud;  //total de vida, este se cambia
     public LayerMask que_es_objetivo; //se asigna quien califica como enemigo
-    public float IniciartiempoEntreAtaque; //cuenta el tiempo que pasa entre ataques
     public Transform player;
     public float Rango; //rango de ataque
     public Transform PosAtaque; //se donde viene el ataque
     public int daño; //daño MINIMO que puede hacer
-    public Image vida;    // Para desplegar la vida de forma visible
-    private int salud_inicial; //total de vida inicial, no se cambia
-    private float tiempoEntreAtaque; //cuenta el tiempo que pasa
 
     private Vector2 Velocity;
     public float SmoothY;
@@ -45,7 +40,6 @@ public class skelFollow : MonoBehaviour
         MatDefault=spriteRenderer.material;
         //col.gameObject.SetActive(true);
         tiempo=-1f;
-        salud_inicial = salud;
     }
 
     // Update is called once per frame
@@ -123,23 +117,12 @@ public class skelFollow : MonoBehaviour
     {
         spriteRenderer.material=MatDefault;
     }
-    public void RecibeDaño(int d)         //cuando recibe daño
-    {
-        salud -= d;
-        Debug.Log("daño inflijido");
-        if (salud <= 0)                      //si pierde toda su vida
-        {
-            Destroy(this.gameObject);            //muere *agreguen animaciones porfa*
-        }
-        float proporcion = (float)salud / (float)salud_inicial;
-        vida.fillAmount = proporcion;
-    }
+
     public void InflijeDaño()
     {
             Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, Rango, que_es_objetivo);
             for (int i = 0; i < enemigosDañados.Length; i++)
             {
-                tiempoEntreAtaque = IniciartiempoEntreAtaque;
                 enemigosDañados[i].GetComponent<player>().RecibeDaño(daño);
             }
     }

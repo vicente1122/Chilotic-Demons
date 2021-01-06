@@ -29,7 +29,7 @@ public class Player_Attack : MonoBehaviour
                 Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, rango_mele, que_es_enemigo);
                 for(int i = 0; i<enemigosDañados.Length; i++)
                 {
-                    enemigosDañados[i].GetComponent<Enemigo>().RecibeDaño(daño);
+                    enemigosDañados[i].GetComponent<sistema_vida>().RecibeDaño(daño);
                 }
             }
             tiempoEntreAtaque = IniciartiempoEntreAtaque;

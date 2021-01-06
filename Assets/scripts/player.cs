@@ -36,6 +36,13 @@ public class player : MonoBehaviour
     public Collider2D Ataque;
     public bool had2jump;
     public inventario inventario;
+
+    //variables de combate de Eloy son para la funciona InflijeDaño()
+    public Transform PosAtaque;
+    public float rango_mele;
+    public LayerMask que_es_enemigo;
+    public int daño;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -153,7 +160,6 @@ public class player : MonoBehaviour
                 ax2Fire=true;
                 rb2d.velocity= new Vector2(0,0);
                 tiempo-=Time.deltaTime;
-                
             }
             
         }
@@ -234,5 +240,12 @@ public class player : MonoBehaviour
         position.z = data.ubicacion[2];
         transform.position = position;
     }
+    public void InflijeDaño()
+    {
+        Collider2D[] enemigosDañados = Physics2D.OverlapCircleAll(PosAtaque.position, rango_mele, que_es_enemigo);
+        for (int i = 0; i < enemigosDañados.Length; i++)
+        {
+            enemigosDañados[i].GetComponent<sistema_vida>().RecibeDaño(daño);
+        }
+    }
 }
-

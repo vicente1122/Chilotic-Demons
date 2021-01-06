@@ -7,7 +7,6 @@ public class Enemigo : MonoBehaviour
 {
     public float dimension_x;    //para evitar problemas de orientacion y asignar las dimensiones
     public float dimension_y;
-    public int salud;  //total de vida, este se cambia
     public float velocidad;
     public float distancia;     //a que distancia detecta el suelo
     public Transform deteccionSuelo;
@@ -24,15 +23,12 @@ public class Enemigo : MonoBehaviour
     public float IniciartiempoEntreAtaque; //cuenta el tiempo que pasa entre ataques
     public Transform player;
     private float tiempoEntreAtaque; //cuenta el tiempo que pasa
-    private int salud_inicial; //total de vida inicial, no se cambia
 
-    public Image vida;    // Para desplegar la vida de forma visible
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         velocidad2 = velocidad;
-        salud_inicial = salud;
     }
 
     // Update is called once per frame
@@ -156,16 +152,4 @@ public class Enemigo : MonoBehaviour
             }
         }
     } //este corchete cierra el void 
-
-    public void RecibeDaño(int d)         //cuando recibe daño
-    {
-        salud -= d;
-        Debug.Log("daño inflijido");
-        if (salud <= 0)                      //si pierde toda su vida
-        {
-            Destroy(this.gameObject);            //muere *agreguen animaciones porfa*
-        }
-        float proporcion = (float)salud / (float)salud_inicial;
-        vida.fillAmount = proporcion;
-    }
 }
