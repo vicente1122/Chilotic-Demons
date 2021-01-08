@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 305475493422625261}
   - component: {fileID: 305475493422625257}
   - component: {fileID: 305475493422625256}
-  - component: {fileID: 9142026873060068008}
   - component: {fileID: 9142026873537009195}
   m_Layer: 8
   m_Name: player
@@ -230,7 +229,9 @@ MonoBehaviour:
   left: 97
   right: 100
   jump: 32
+  canjump: 0
   jumpW: 119
+  dash: 0
   Ataque1: 323
   Ataque2: 324
   Shake: 113
@@ -239,7 +240,16 @@ MonoBehaviour:
   camFollow: {fileID: 0}
   textoSalud: {fileID: 0}
   tiempo: 0
+  tiempoDash: 0
   Ataque: {fileID: 9142026872919012600}
+  had2jump: 0
+  inventario: {fileID: 0}
+  PosAtaque: {fileID: 0}
+  rango_mele: 0
+  que_es_enemigo:
+    serializedVersion: 2
+    m_Bits: 0
+  "da\xF1o": 0
 --- !u!95 &305475493422625256
 Animator:
   serializedVersion: 3
@@ -259,26 +269,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9142026873060068008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305475493422625262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c86caff87ab824448c4644dad28f1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IniciartiempoEntreAtaque: 0.3
-  AtaqueMele: 113
-  PosAtaque: {fileID: 9142026873187415998}
-  rango_mele: 20
-  que_es_enemigo:
-    serializedVersion: 2
-    m_Bits: 512
-  "da\xF1o": 6
 --- !u!114 &9142026873537009195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +292,7 @@ MonoBehaviour:
   Prev: 276
   pause: 27
   inventario1: {fileID: 0}
+  selectedSlotInt: 0
   MenuPausa: {fileID: 0}
 --- !u!1 &9142026872919012598
 GameObject:
