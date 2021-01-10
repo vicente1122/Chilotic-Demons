@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     public KeyCode Pausar;
+    public KeyCode LeerNota;
     public static bool PausedGame = false;
     public GameObject PausedMenuUI;
+    public GameObject Nota;
+    public GameObject mensaje;
+    public static bool leyendoNota=false;
     void Update()
     {
         if (Input.GetKeyDown(Pausar))
@@ -14,11 +18,25 @@ public class MenuPausa : MonoBehaviour
             if (PausedGame)
             {
                 Resume();
+                
             } else
             {
                 Pause();
+                mensaje.SetActive(false);
             }
         }
+        if (Input.GetKeyDown(LeerNota)&&!PausedGame)
+        {
+            if(leyendoNota)
+            {
+                salirNota();
+            }
+            else
+            {
+                leerNota();
+            }
+        }
+        
     }
     public void Resume()
     {
@@ -42,5 +60,19 @@ public class MenuPausa : MonoBehaviour
     {
         Debug.Log("chaolin");
         Application.Quit();
+    }
+    public void leerNota()
+    {
+        leyendoNota=true;
+        Nota.SetActive(true);
+        Time.timeScale=0;
+        
+    }
+    public void salirNota()
+    {
+        leyendoNota=false;
+        Nota.SetActive(false);
+        Time.timeScale=1;
+        mensaje.SetActive(false);
     }
 }

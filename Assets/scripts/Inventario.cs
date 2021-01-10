@@ -34,7 +34,7 @@ public class inventario : MonoBehaviour
         }¨*/
         
 
-        if(MenuPausa.PausedGame)
+        if(MenuPausa.PausedGame||MenuPausa.leyendoNota)
         {
             inventario1.gameObject.SetActive(false);            
         }

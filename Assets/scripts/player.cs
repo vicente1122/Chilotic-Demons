@@ -42,6 +42,9 @@ public class player : MonoBehaviour
     public float rango_mele;
     public LayerMask que_es_enemigo;
     public int daño;
+    public Material MatBlaco;
+    SpriteRenderer spriteRenderer;
+    private Material MatDefault;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,8 @@ public class player : MonoBehaviour
         anim=GetComponent<Animator>();
         textoSalud.text = salud.ToString();
         salud_inicial = salud;
+        spriteRenderer=GetComponent<SpriteRenderer>();
+        MatDefault=spriteRenderer.material;
     }
 
     // Update is called once per frame
@@ -126,7 +131,7 @@ public class player : MonoBehaviour
             transform.localScale= new Vector3(1,1,1);
         }
         else{
-            rb2d.velocity=new Vector2((rb2d.velocity.x)*0.8f,rb2d.velocity.y);
+            rb2d.velocity=new Vector2((rb2d.velocity.x)*0.2f,rb2d.velocity.y);
         }
         
         /*if ((Input.GetKey(jump)&&ground)||(Input.GetKeyDown(jump)&&canjump>0)||(Input.GetKey(jumpW))){
@@ -221,6 +226,9 @@ public class player : MonoBehaviour
             }
             textoSalud.text = salud.ToString();
             float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
+            camFollow.ShakeCamera(1f,0.1f);
+            spriteRenderer.material=MatBlaco;
+            Invoke("resetMat",0.2f);
             vida.fillAmount = proporcion;
         }
     }
@@ -247,5 +255,9 @@ public class player : MonoBehaviour
         {
             enemigosDañados[i].GetComponent<sistema_vida>().RecibeDaño(daño);
         }
+    }
+    public void resetMat()
+    {
+        spriteRenderer.material=MatDefault;
     }
 }
