@@ -4940,6 +4940,18 @@ PrefabInstance:
       propertyPath: MenuPausa
       value: 
       objectReference: {fileID: 1992177435}
+    - target: {fileID: 9142026873537009195, guid: f21be1b63d24a0b438e89f3a3eb38b40,
+        type: 3}
+      propertyPath: pocion
+      value: 
+      objectReference: {fileID: 9056376202468951780, guid: da9c92a5a7eb234409f6cdfcb3b15153,
+        type: 3}
+    - target: {fileID: 9142026873537009195, guid: f21be1b63d24a0b438e89f3a3eb38b40,
+        type: 3}
+      propertyPath: hacha
+      value: 
+      objectReference: {fileID: 3529622595662795162, guid: 804bfa1553740734f9a272c88d9cd90a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f21be1b63d24a0b438e89f3a3eb38b40, type: 3}
 --- !u!1001 &6771920240999544586
