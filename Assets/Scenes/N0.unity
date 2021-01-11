@@ -1853,6 +1853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca431241c300ec643ad99e487d5f25c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hacha: {fileID: 3529622595662795162, guid: 804bfa1553740734f9a272c88d9cd90a, type: 3}
+  pocion: {fileID: 9056376202468951780, guid: da9c92a5a7eb234409f6cdfcb3b15153, type: 3}
   isFull: 000000
   slots:
   - {fileID: 1659196647}
@@ -2876,6 +2878,16 @@ PrefabInstance:
       propertyPath: PosAtaque
       value: 
       objectReference: {fileID: 1849998392}
+    - target: {fileID: 8854716055722931391, guid: c702952abc80be74c95e8ebeef27f721,
+        type: 3}
+      propertyPath: inventario
+      value: 
+      objectReference: {fileID: 1260515148}
+    - target: {fileID: 8854716055722931391, guid: c702952abc80be74c95e8ebeef27f721,
+        type: 3}
+      propertyPath: que_es_enemigo.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 8854716056511284505, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
       propertyPath: water
