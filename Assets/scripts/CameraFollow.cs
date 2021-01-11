@@ -37,13 +37,14 @@ public class CameraFollow : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float posX=Mathf.SmoothDamp(transform.position.x,Player1.transform.position.x,ref Velocity.x,SmoothX);
-        float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
-
-        transform.position=new Vector3(posX,posY,transform.position.z);   
-        if (Input.GetButtonDown("Fire1")){
-            ShakeCamera(1f,1);
+        if(Player1!=null)
+        {
+            float posX=Mathf.SmoothDamp(transform.position.x,Player1.transform.position.x,ref Velocity.x,SmoothX);
+            float posY=Mathf.SmoothDamp(transform.position.y,Player1.transform.position.y,ref Velocity.y,SmoothY);
+            transform.position=new Vector3(posX,posY,transform.position.z);
         }
+           
+        
         
     }
     

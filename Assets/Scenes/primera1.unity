@@ -1433,6 +1433,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947024553}
   m_CullTransparentMesh: 0
+--- !u!114 &1009918891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9199086138171491265, guid: 0b4fd169318e97c4280dc7fb8a18cb0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326008806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1027908139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2319,6 +2331,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 753605422}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376833755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9199086139873857218, guid: 0b4fd169318e97c4280dc7fb8a18cb0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326008806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1577390542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4703985794144113644, guid: c2d6d4aabf1d1544b9baa035bfe72fe6,
@@ -2597,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffc642316aa1b247b7a58eb90e004f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salud: 80
+  salud: 120
   IMGvida: {fileID: 836943663}
 --- !u!1 &1902690035 stripped
 GameObject:
@@ -3087,7 +3111,7 @@ PrefabInstance:
     - target: {fileID: 763538065089335034, guid: c33e7a982a405a440a2bd79a7fdc6b12,
         type: 3}
       propertyPath: "da\xF1o"
-      value: 20
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 763538065089335034, guid: c33e7a982a405a440a2bd79a7fdc6b12,
         type: 3}
@@ -3181,6 +3205,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025717092073278995, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.019607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025717092073278995, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025717092073278995, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.039215688
       objectReference: {fileID: 0}
     - target: {fileID: 4025717092073278996, guid: ceeafd74f4dd5cc4c95bc4bf1d19de40,
         type: 3}
@@ -3442,7 +3481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: vida
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1376833755}
     - target: {fileID: 305475493422625257, guid: f21be1b63d24a0b438e89f3a3eb38b40,
         type: 3}
       propertyPath: camFollow
@@ -3452,7 +3491,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textoSalud
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1009918891}
     - target: {fileID: 305475493422625257, guid: f21be1b63d24a0b438e89f3a3eb38b40,
         type: 3}
       propertyPath: dash
@@ -3483,6 +3522,11 @@ PrefabInstance:
       propertyPath: PosAtaque
       value: 
       objectReference: {fileID: 158514154}
+    - target: {fileID: 305475493422625257, guid: f21be1b63d24a0b438e89f3a3eb38b40,
+        type: 3}
+      propertyPath: MatBlaco
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
     - target: {fileID: 305475493422625258, guid: f21be1b63d24a0b438e89f3a3eb38b40,
         type: 3}
       propertyPath: m_LocalPosition.x
