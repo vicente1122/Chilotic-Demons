@@ -55,9 +55,46 @@ public class skelFollow : MonoBehaviour
         anim.SetBool("reanim", reanim);
         if (Player1!=null)
         {
+            float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
+            float posY = Mathf.SmoothDamp(transform.position.y, Player1.transform.position.y, ref Velocity.y, SmoothY);
 
+            if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 30f)
+            {
+                transform.position = transform.position;
+                running = false;
+                ataque = true;
+            }
+            else if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 100f)
+            {
+                transform.position = new Vector3(posX * distancia, transform.position.y, transform.position.z);
+                running = true;
+                ataque = false;
+            }
+            else if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 150f)
+            {
+                reanim=true;
+            }
+            else
+            {
+                transform.position = transform.position;
+                running = false;
+                ataque = false;
+            }
+            if (transform.position.x - Player1.transform.position.x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
-        float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
+        else
+        {
+            running=false;
+            ataque=false;
+        }
+        /*float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
         float posY = Mathf.SmoothDamp(transform.position.y, Player1.transform.position.y, ref Velocity.y, SmoothY);
 
         if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 30f)
@@ -89,7 +126,7 @@ public class skelFollow : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
-        }
+        }*/
     }
     void OnTriggerEnter2D(Collider2D col)
     {

@@ -3447,6 +3447,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8854716056490772617}
+    - target: {fileID: 7635600160991642864, guid: ba0644d4b7038e241aa510218110ad0f,
+        type: 3}
+      propertyPath: MenuPausa
+      value: 
+      objectReference: {fileID: 4599891255490773245}
+    - target: {fileID: 7635600160991642864, guid: ba0644d4b7038e241aa510218110ad0f,
+        type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1577390542}
     - target: {fileID: 7635600160991642866, guid: ba0644d4b7038e241aa510218110ad0f,
         type: 3}
       propertyPath: m_Name
