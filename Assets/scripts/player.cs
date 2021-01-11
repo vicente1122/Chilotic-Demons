@@ -157,6 +157,12 @@ public class player : MonoBehaviour
             }
             
         }
+        if (Input.GetKey(Ataque1)&&inventario.isFull[inventario.selectedSlotInt]&&inventario.slots[inventario.selectedSlotInt].transform.GetChild(1).gameObject.CompareTag("HealthButtom"))
+        {
+            RecibeDaño(-40);
+            Destroy(inventario.slots[inventario.selectedSlotInt].transform.GetChild(1).gameObject);
+            inventario.isFull[inventario.selectedSlotInt]=false;
+        }
         if (tiempo>=0)
         {
             Ataque.gameObject.SetActive(true);
@@ -215,12 +221,8 @@ public class player : MonoBehaviour
     public void RecibeDaño(int d)         //cuando recibe daño
     {
         int num = Random.Range(1, 101); //probablidades
-        if (num < evasion) //logra evadir
-        {
-            d = d * 0;    //esquiva ataque
-            Debug.Log("esquivaste un ataque");
-        }
-        else {
+        
+        if(salud-d<=100) {
             salud -= d;
             Debug.Log("daño recibido");
             if (salud <= 0)                      //si pierde toda su vida
@@ -235,6 +237,10 @@ public class player : MonoBehaviour
             spriteRenderer.material=MatBlaco;
             Invoke("resetMat",0.2f);
             vida.fillAmount = proporcion;
+        }
+        else
+        {
+            salud=100;
         }
     }
     public void Guardar()                //guarda juego

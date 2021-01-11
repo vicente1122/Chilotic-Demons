@@ -520,6 +520,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &465780501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465780502}
+  m_Layer: 0
+  m_Name: inventaio fake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465780502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465780501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -37.826454, y: 69.08093, z: -37.858944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &480054652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,12 +654,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3583340342533431266, guid: d1909f0ee7320e14bb3d1db649376861,
     type: 3}
   m_PrefabInstance: {fileID: 1016772658}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &680232943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4703985794144113644, guid: c2d6d4aabf1d1544b9baa035bfe72fe6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2128331403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &732259509
 PrefabInstance:
@@ -1853,8 +1877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca431241c300ec643ad99e487d5f25c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hacha: {fileID: 3529622595662795162, guid: 804bfa1553740734f9a272c88d9cd90a, type: 3}
-  pocion: {fileID: 9056376202468951780, guid: da9c92a5a7eb234409f6cdfcb3b15153, type: 3}
   isFull: 000000
   slots:
   - {fileID: 1659196647}
@@ -1865,7 +1887,7 @@ MonoBehaviour:
   Next: 275
   Prev: 276
   pause: 0
-  inventario1: {fileID: 680232943}
+  inventario1: {fileID: 465780501}
   selectedSlotInt: 0
   MenuPausa: {fileID: 740135941}
 --- !u!1 &1261935920
@@ -2438,7 +2460,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 107256fea78d3c346b4bce21485c007a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79ba3691da63d2c4085da647d6073014, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2880,13 +2902,8 @@ PrefabInstance:
       objectReference: {fileID: 1849998392}
     - target: {fileID: 8854716055722931391, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
-      propertyPath: inventario
-      value: 
-      objectReference: {fileID: 1260515148}
-    - target: {fileID: 8854716055722931391, guid: c702952abc80be74c95e8ebeef27f721,
-        type: 3}
-      propertyPath: que_es_enemigo.m_Bits
-      value: 512
+      propertyPath: evasion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8854716056511284505, guid: c702952abc80be74c95e8ebeef27f721,
         type: 3}
@@ -8056,6 +8073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703985794144113644, guid: c2d6d4aabf1d1544b9baa035bfe72fe6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9120337427289052086, guid: c2d6d4aabf1d1544b9baa035bfe72fe6,
         type: 3}

@@ -39,7 +39,7 @@ public class skelFollow : MonoBehaviour
         //MatBlanco=Resources.Load("WhiteFlash",typeof(Material)) as Material;
         MatDefault=spriteRenderer.material;
         //col.gameObject.SetActive(true);
-        tiempo=-1f;
+        //tiempo=-1f;
     }
 
     // Update is called once per frame
@@ -52,28 +52,50 @@ public class skelFollow : MonoBehaviour
         anim.SetBool("run", running);
         anim.SetFloat("speed", tiempo);
         anim.SetBool("ataque", ataque);
-        float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
-        float posY = Mathf.SmoothDamp(transform.position.y, Player1.transform.position.y, ref Velocity.y, SmoothY);
         anim.SetBool("reanim", reanim);
+        if (Player1!=null)
+        {
+            float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
+            float posY = Mathf.SmoothDamp(transform.position.y, Player1.transform.position.y, ref Velocity.y, SmoothY);
 
-
-        //Debug.Log(Mathf.Abs(transform.position.x-Player1.transform.position.x));
-        Debug.Log(tiempo);
-        if (tiempo > 0)
-        {
-            reanim = true;/**/
-            tiempo -= Time.deltaTime;
+            if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 30f)
+            {
+                transform.position = transform.position;
+                running = false;
+                ataque = true;
+            }
+            else if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 100f)
+            {
+                transform.position = new Vector3(posX * distancia, transform.position.y, transform.position.z);
+                running = true;
+                ataque = false;
+            }
+            else if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 150f)
+            {
+                reanim=true;
+            }
+            else
+            {
+                transform.position = transform.position;
+                running = false;
+                ataque = false;
+            }
+            if (transform.position.x - Player1.transform.position.x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
-        else if (tiempo <= 0)
+        else
         {
-            reanim = false;
-            tiempo = 0f;
-            //col.gameObject.SetActive(false);
+            running=false;
+            ataque=false;
         }
-        /*if (ataque==true)
-        {
-            tiempo=0.5f;
-        }*/
+        /*float posX = Mathf.SmoothDamp(transform.position.x, Player1.transform.position.x, ref Velocity.x, SmoothX);
+        float posY = Mathf.SmoothDamp(transform.position.y, Player1.transform.position.y, ref Velocity.y, SmoothY);
 
         if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 30f)
         {
@@ -87,9 +109,12 @@ public class skelFollow : MonoBehaviour
             running = true;
             ataque = false;
         }
+        else if (Mathf.Abs(transform.position.x - Player1.transform.position.x) < 150f)
+        {
+            reanim=true;
+        }
         else
         {
-            //reanim=true;
             transform.position = transform.position;
             running = false;
             ataque = false;
@@ -101,8 +126,8 @@ public class skelFollow : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
-        }
-    }//este cierra el void
+        }*/
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("AttackArea"))
