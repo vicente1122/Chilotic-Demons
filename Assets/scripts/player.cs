@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     public KeyCode Ataque1;
     public KeyCode Ataque2;
     private int salud_inicial;
+    private static bool cargo = false;
 
     public KeyCode Shake;
     private Rigidbody2D rb2d;   
@@ -55,6 +56,7 @@ public class player : MonoBehaviour
         salud_inicial = salud;
         spriteRenderer=GetComponent<SpriteRenderer>();
         MatDefault=spriteRenderer.material;
+     
     }
 
     // Update is called once per frame
@@ -69,12 +71,15 @@ public class player : MonoBehaviour
         {
             tiempoDash=0.1f;
         }
-        
+        if (cargo == true)
+        {
+            CargarEspecificos();
+        }
+
     }
     
     void FixedUpdate()
     {
-        
         anim.SetBool("ground",ground);
         anim.SetFloat("speed",Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("axFire1",ax1Fire);
@@ -246,6 +251,11 @@ public class player : MonoBehaviour
     {
         playerData data = SaveSystem.CargarJugador();
         SceneManager.LoadScene(data.nivel);
+        cargo = true;
+    }
+    void CargarEspecificos()                 //carga juego despues de cargar la escena
+    {
+        playerData data = SaveSystem.CargarJugador();
         salud = data.vida;
 
         Vector3 position;
@@ -253,6 +263,11 @@ public class player : MonoBehaviour
         position.y = data.ubicacion[1];
         position.z = data.ubicacion[2];
         transform.position = position;
+        inventario.CargarInventario();
+        textoSalud.text = salud.ToString();
+        float proporcion = (float)salud / (float)salud_inicial; //animacion de salud
+        vida.fillAmount = proporcion;
+        cargo = false;
     }
     public void InflijeDaño()
     {
